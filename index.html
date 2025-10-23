@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grbić Lab – Spider Mite Team | Western University</title>
+    <style>
+        /* ===== BASIC STYLES ===== */
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== HEADER IMAGE ===== */
+        header {
+            background: url("images/lab_header.jpg") no-repeat center center/cover;
+            height: 300px;
+            position: relative;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1 {
+            background-color: rgba(80, 0, 130, 0.6); /* Western purple overlay */
+            padding: 20px 40px;
+            border-radius: 8px;
+            font-size: 2.5em;
+        }
+
+        /* ===== IMAGE CAROUSEL ===== */
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            margin-top: 20px;
+            display: block;
+        }
+
+        .carousel-images {
+            display: flex;
+            overflow: hidden;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-button {
+            background-color: rgba(80, 0, 130, 0.6);
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            color: white;
+            font-size: 1.5em;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            background-color: #4b0082; /* Western purple */
+            overflow: hidden;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav > ul > li {
+            padding: 14px 20px;
+            cursor: pointer;
+            color: white;
+            font-weight: 500;
+        }
+
+        nav li:hover {
+            background-color: #5e2b97;
+        }
+
+        /* ===== DROPDOWN MENU ===== */
+        nav li ul {
+            display: none;
+            position: absolute;
+            top: 48px;
+            left: 0;
+            background-color: #5e2b97;
+            min-width: 200px;
+            z-index: 999;
+            flex-direction: column;
+        }
+
+        nav li:hover > ul {
+            display: flex;
+        }
+
+        nav li ul li {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        nav li ul li:hover {
+            background-color: #764abc;
+        }
+
+        /* ===== CONTENT SECTIONS ===== */
+        section {
+            padding: 50px 10%;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        section h2 {
+            color: #4b0082;
+            border-bottom: 3px solid #4b0082;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #eee;
+            color: #333;
+            font-size: 0.9em;
+            text-align: center;
+            padding: 30px 10px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            header {
+                height: 200px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav li ul {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER SECTION ===== -->
+    <header>
+        <h1>Grbić Lab – The Spider Mite Team</h1>
+    </header>
+
+    <!-- ===== IMAGE CAROUSEL ===== -->
+    <div class="carousel">
+        <div class="carousel-images">
+            <!-- Put images inside the "images" folder, and use appropriate names -->
+            <img src="images/mite_research_1.jpg" alt="Research Image 1">
+            <img src="images/mite_research_2.jpg" alt="Research Image 2">
+            <img src="images/mite_research_3.jpg" alt="Research Image 3">
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-button" id="prevBtn">&#10094;</button>
+            <button class="carousel-button" id="nextBtn">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- ===== NAVIGATION BAR ===== -->
+    <nav>
+        <ul>
+            <li>Welcome
+                <ul>
+                    <li><a href="#welcome">About the Lab</a></li>
+                    <li><a href="#mission">Mission & Vision</a></li>
+                </ul>
+            </li>
+            <li>Research
+                <ul>
+                    <li><a href="#research">Current Projects</a></li>
+                    <li><a href="#genomics">Genomics & Evolution</a></li>
+                    <li><a href="#host">Host–Plant Interactions</a></li>
+                </ul>
+            </li>
+            <li>People
+                <ul>
+                    <li><a href="#team">Team Members</a></li>
+                    <li><a href="#alumni">Alumni</a></li>
+                </ul>
+            </li>
+            <li>Services
+                <ul>
+                    <li><a href="#services">Overview</a></li>
+                    <li><a href="#sample-submission">Sample Submission Instructions</a></li>
+                </ul>
+            </li>
+            <li>Opportunities
+                <ul>
+                    <li><a href="#opportunities">Join Us</a></li>
+                    <li><a href="#students">For Students</a></li>
+                </ul>
+            </li>
+            <li>Publications
+                <ul>
+                    <li><a href="#publications">Our Work</a></li>
+                </ul>
+            </li>
+            <li>Links
+                <ul>
+                    <li><a href="#links">Useful Resources</a></li>
+                </ul>
+            </li>
+            <li>Contact Information
+                <ul>
+                    <li><a href="#contact">How to Reach Us</a></li>
+                </ul>
+            </li>
+            <li><a href="https://www.uwo.ca/biology/" target="_blank">Western Biology</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <section id="welcome">
+        <h2>Welcome to the Grbić Lab</h2>
+        <p>We are the Spider Mite Team at Western University in Ontario, Canada. Our research focuses on the <strong>genomics and genetics of spider mite–host plant interactions</strong>, adaptation, and resistance to pesticides. Our goal is to understand the molecular and evolutionary mechanisms driving pest adaptation and to support sustainable agriculture through genomic insights.</p>
+    </section>
+
+    <section id="services">
+        <h2>Services</h2>
+        <p>We provide services to identify spider mite species (Acaros) and assess their resistance status. Our team uses molecular and phenotypic assays to determine species composition and resistance to common pesticides.</p>
+    </section>
+
+    <section id="sample-submission">
+        <h2>Sample Submission Instructions</h2>
+        <p>If you wish to send plant samples infested with spider mites for identification and resistance assessment, please follow these steps:</p>
+        <ol>
+            <li>Collect a few leaves showing active spider mite infestation.</li>
+            <li>Place the samples in a small, ventilated container or paper envelope (avoid plastic bags if possible).</li>
+            <li>Include details about the host plant, location, date, and observed pesticide treatments.</li>
+            <li>Mail the samples to our lab at the address below, labeled “Spider Mite Sample – Grbić Lab”.</li>
+        </ol>
+        <p>Contact us beforehand at <a href="mailto:grbiclab@uwo.ca">grbiclab@uwo.ca</a> for submission approval and guidance.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Information</h2>
+        <p><strong>Grbić Lab – Spider Mite Team</strong><br>
+           Department of Biology, Western University<br>
+           London, Ontario, Canada<br>
+           Email: <a href="mailto:grbiclab@uwo.ca">grbiclab@uwo.ca</a></p>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>&copy; <span id="year"></span> Grbić Lab, Department of Biology, Western University, Ontario, Canada. All rights reserved.</p>
+        <p>Website maintained by the Spider Mite Team. Content for research and educational purposes only.</p>
+    </footer>
+
+    <script>
+        // Auto-update year in footer
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Carousel functionality
+        let currentIndex = 0;
+        const images = document.querySelectorAll(".carousel-images img");
+        const totalImages = images.length;
+
+        function showImage(index) {
+            if (index >= totalImages) currentIndex = 0;
+            if (index < 0) currentIndex = totalImages - 1;
+            document.querySelector(".carousel-images").style.transform = `translateX(-${100 * currentIndex}%)`;
+        }
+
+        document.getElementById("nextBtn").addEventListener("click", () => {
+            currentIndex++;
+            showImage(currentIndex);
+        });
+
+        document.getElementById("prevBtn").addEventListener("click", () => {
+            currentIndex--;
+            showImage(currentIndex);
+        });
+
+        // Auto-cycle images every 4 seconds
+        setInterval(() => {
+            currentIndex++;
+            showImage(currentIndex);
+        }, 4000);
+    </script>
+</body>
+</html>
