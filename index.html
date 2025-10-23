@@ -20,13 +20,14 @@
 
         /* ===== HEADER IMAGE ===== */
         header {
-            background: url("images/lab_header.jpg") no-repeat center center/cover;
+            background: url("images/lab1.jpg") no-repeat center center/cover;
             height: 300px;
             position: relative;
             color: white;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-end;  /* Aligns the text to the bottom */
+            justify-content: center;  /* Keeps the text horizontally centered */
+            padding-bottom: 1px; /* Optional: adds some space from the bottom */
         }
 
         header h1 {
@@ -125,28 +126,27 @@
         }
 
         /* ===== CAROUSEL STYLES ===== */
+        /* ===== IMAGE CAROUSEL ===== */
         .carousel {
             position: relative;
-            max-width: 100%;
+            max-width: 100%;  /* Ensures the carousel fits within the screen width */
             margin-top: 20px;
             display: block;
-            overflow: hidden; /* Hide anything outside the carousel container */
+            overflow: hidden; /* Prevents overflow of images */
         }
 
         .carousel-images {
             display: flex;
-            transition: transform 0.5s ease-in-out; /* Smooth transition between images */
+            transition: transform 1s ease-in-out; /* Smooth transition for sliding images */
         }
 
-        .carousel-controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
+        .carousel-images img {
+            width: 100%;  /* Makes each image take up 100% of the container width */
+            height: auto;  /* Maintain aspect ratio */
+            object-fit: cover;  /* Ensures images cover the container without distortion */
         }
 
+        /* ===== CAROUSEL BUTTONS ===== */
         .carousel-controls {
             position: absolute;
             top: 50%;
@@ -157,15 +157,14 @@
         }
 
         .carousel-button {
-            background-color: rgba(80, 0, 130, 0.6); /* Purple */
+            background-color: rgba(80, 0, 130, 0.6);
             border: none;
             padding: 15px;
             cursor: pointer;
             color: white;
-            font-size: 2em;
-            border-radius: 50%; /* Circular buttons */
-            transition: background-color 0.3s ease;
+            font-size: 1.5em;
         }
+
         
         .carousel-button:hover {
             background-color: #6a2a97; /* Darker purple on hover */
@@ -218,9 +217,12 @@
     <div class="carousel">
         <div class="carousel-images">
             <!-- Put images inside the "images" folder, and use appropriate names -->
-            <img src="images/mite_research_1.jpg" alt="Research Image 1">
-            <img src="images/mite_research_2.jpg" alt="Research Image 2">
-            <img src="images/mite_research_3.jpg" alt="Research Image 3">
+            <img src="images/lab1.jpg" alt="Research Image 1">
+            <img src="images/lab2.jpg" alt="Research Image 2">
+            <img src="images/lab3.jpg" alt="Research Image 3">
+            <img src="images/lab4.jpg" alt="Research Image 1">
+            <img src="images/lab5.jpg" alt="Research Image 2">
+            <img src="images/lab6.jpg" alt="Research Image 3">
         </div>
         <div class="carousel-controls">
             <button class="carousel-button" id="prevBtn">&#10094;</button>
@@ -283,14 +285,14 @@
         <h2>Contact Information</h2>
         <p><strong>Grbić Lab – Spider Mite Team</strong><br>
            Department of Biology, Western University<br>
-           London, Ontario, Canada<br>
+           London, ON, Canada<br>
            Email: <a href="mailto:grbiclab@uwo.ca">grbiclab@uwo.ca</a></p>
     </section>
 
     <!-- ===== FOOTER ===== -->
     <footer>
-        <p>&copy; <span id="year"></span> Grbić Lab, Department of Biology, Western University, Ontario, Canada. All rights reserved.</p>
-        <p>Website maintained by the Spider Mite Team. Content for research and educational purposes only.</p>
+        <p>&copy; <span id="year"></span> Grbić Lab, Department of Biology, Western University, ON, Canada. All rights reserved.</p>
+        <p>Content for research and educational purposes only.</p>
     </footer>
 
     <script>
@@ -300,6 +302,9 @@
         // Handle section visibility
         const navItems = document.querySelectorAll('nav li[data-section]');
         const sections = document.querySelectorAll('section');
+
+        // Set the "Welcome" section to be active by default
+        document.getElementById("welcome").classList.add('active');
 
         navItems.forEach(item => {
             item.addEventListener('click', () => {
@@ -315,6 +320,7 @@
                 }
             });
         });
+
 
         // Carousel functionality
         let currentIndex = 0;
@@ -341,7 +347,7 @@
         setInterval(() => {
             currentIndex++;
             showImage(currentIndex);
-        }, 4000);
+        }, 9000);
     </script>
 </body>
 </html>
