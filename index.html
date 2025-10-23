@@ -36,43 +36,6 @@
             font-size: 2.5em;
         }
 
-        /* ===== IMAGE CAROUSEL ===== */
-        .carousel {
-            position: relative;
-            max-width: 100%;
-            margin-top: 20px;
-            display: block;
-        }
-
-        .carousel-images {
-            display: flex;
-            overflow: hidden;
-        }
-
-        .carousel-images img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
-        .carousel-controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-
-        .carousel-button {
-            background-color: rgba(80, 0, 130, 0.6);
-            border: none;
-            padding: 15px;
-            cursor: pointer;
-            color: white;
-            font-size: 1.5em;
-        }
-
         /* ===== NAVBAR ===== */
         nav {
             background-color: #4b0082; /* Western purple */
@@ -134,6 +97,11 @@
             padding: 50px 10%;
             max-width: 1000px;
             margin: auto;
+            display: none; /* Hide all sections initially */
+        }
+
+        section.active {
+            display: block; /* Only the active section is shown */
         }
 
         section h2 {
@@ -196,52 +164,14 @@
     <!-- ===== NAVIGATION BAR ===== -->
     <nav>
         <ul>
-            <li>Welcome
-                <ul>
-                    <li><a href="#welcome">About the Lab</a></li>
-                    <li><a href="#mission">Mission & Vision</a></li>
-                </ul>
-            </li>
-            <li>Research
-                <ul>
-                    <li><a href="#research">Current Projects</a></li>
-                    <li><a href="#genomics">Genomics & Evolution</a></li>
-                    <li><a href="#host">Host–Plant Interactions</a></li>
-                </ul>
-            </li>
-            <li>People
-                <ul>
-                    <li><a href="#team">Team Members</a></li>
-                    <li><a href="#alumni">Alumni</a></li>
-                </ul>
-            </li>
-            <li>Services
-                <ul>
-                    <li><a href="#services">Overview</a></li>
-                    <li><a href="#sample-submission">Sample Submission Instructions</a></li>
-                </ul>
-            </li>
-            <li>Opportunities
-                <ul>
-                    <li><a href="#opportunities">Join Us</a></li>
-                    <li><a href="#students">For Students</a></li>
-                </ul>
-            </li>
-            <li>Publications
-                <ul>
-                    <li><a href="#publications">Our Work</a></li>
-                </ul>
-            </li>
-            <li>Links
-                <ul>
-                    <li><a href="#links">Useful Resources</a></li>
-                </ul>
-            </li>
-            <li>Contact Information
-                <ul>
-                    <li><a href="#contact">How to Reach Us</a></li>
-                </ul>
-            </li>
+            <li data-section="welcome">Welcome</li>
+            <li data-section="research">Research</li>
+            <li data-section="people">People</li>
+            <li data-section="services">Services</li>
+            <li data-section="opportunities">Opportunities</li>
+            <li data-section="publications">Publications</li>
+            <li data-section="links">Links</li>
+            <li data-section="contact">Contact Information</li>
             <li><a href="https://www.uwo.ca/biology/" target="_blank">Western Biology</a></li>
         </ul>
     </nav>
@@ -252,21 +182,34 @@
         <p>We are the Spider Mite Team at Western University in Ontario, Canada. Our research focuses on the <strong>genomics and genetics of spider mite–host plant interactions</strong>, adaptation, and resistance to pesticides. Our goal is to understand the molecular and evolutionary mechanisms driving pest adaptation and to support sustainable agriculture through genomic insights.</p>
     </section>
 
+    <section id="research">
+        <h2>Research</h2>
+        <p>Research content here...</p>
+    </section>
+
+    <section id="people">
+        <h2>People</h2>
+        <p>Team members and alumni content...</p>
+    </section>
+
     <section id="services">
         <h2>Services</h2>
         <p>We provide services to identify spider mite species (Acaros) and assess their resistance status. Our team uses molecular and phenotypic assays to determine species composition and resistance to common pesticides.</p>
     </section>
 
-    <section id="sample-submission">
-        <h2>Sample Submission Instructions</h2>
-        <p>If you wish to send plant samples infested with spider mites for identification and resistance assessment, please follow these steps:</p>
-        <ol>
-            <li>Collect a few leaves showing active spider mite infestation.</li>
-            <li>Place the samples in a small, ventilated container or paper envelope (avoid plastic bags if possible).</li>
-            <li>Include details about the host plant, location, date, and observed pesticide treatments.</li>
-            <li>Mail the samples to our lab at the address below, labeled “Spider Mite Sample – Grbić Lab”.</li>
-        </ol>
-        <p>Contact us beforehand at <a href="mailto:grbiclab@uwo.ca">grbiclab@uwo.ca</a> for submission approval and guidance.</p>
+    <section id="opportunities">
+        <h2>Opportunities</h2>
+        <p>Join us!</p>
+    </section>
+
+    <section id="publications">
+        <h2>Publications</h2>
+        <p>Our publications...</p>
+    </section>
+
+    <section id="links">
+        <h2>Useful Links</h2>
+        <p>Links to other resources...</p>
     </section>
 
     <section id="contact">
@@ -286,6 +229,25 @@
     <script>
         // Auto-update year in footer
         document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Handle section visibility
+        const navItems = document.querySelectorAll('nav li[data-section]');
+        const sections = document.querySelectorAll('section');
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const sectionId = item.getAttribute('data-section');
+
+                // Hide all sections
+                sections.forEach(section => section.classList.remove('active'));
+
+                // Show the clicked section
+                const activeSection = document.getElementById(sectionId);
+                if (activeSection) {
+                    activeSection.classList.add('active');
+                }
+            });
+        });
 
         // Carousel functionality
         let currentIndex = 0;
