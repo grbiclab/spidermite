@@ -124,6 +124,70 @@
             margin: 5px 0;
         }
 
+        /* ===== CAROUSEL STYLES ===== */
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            margin-top: 20px;
+            display: block;
+            overflow: hidden; /* Hide anything outside the carousel container */
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out; /* Smooth transition between images */
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px; /* Rounded corners for the images */
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-button {
+            background-color: rgba(80, 0, 130, 0.6); /* Western purple with transparency */
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            color: white;
+            font-size: 1.5em;
+            border-radius: 50%; /* Circular buttons */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .carousel-button:hover {
+            background-color: #6a2a97; /* Darker purple on hover */
+        }
+
+        .carousel-button:focus {
+            outline: none; /* Remove outline for a cleaner look */
+        }
+
+        .carousel-button:active {
+            transform: scale(0.95); /* Small animation on button press */
+        }
+
+        .carousel-images::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(80, 0, 130, 0.4); /* Light purple gradient */
+            z-index: 1;
+        }
+
         /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 768px) {
             header {
