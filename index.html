@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,25 +23,52 @@
         /* ===== HEADER IMAGE ===== */
         header {
             background: url("Images/lab1.jpg") no-repeat center center/cover;
-            height: 300px;
+            height: 250px;
             position: relative;
             color: white;
             display: flex;
-            align-items: flex-end;  /* Aligns the text to the bottom */
-            justify-content: center;  /* Keeps the text horizontally centered */
-            padding-bottom: 1px; /* Optional: adds some space from the bottom */
+            align-items: flex-end;
+            justify-content: center;
+            padding-top: 100px;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(80, 0, 130, 0.281);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header>* {
+            position: relative;
+            z-index: 1;
         }
 
         header h1 {
-            background-color: rgba(80, 0, 130, 0.6); /* Western purple overlay */
-            padding: 20px 40px;
-            border-radius: 8px;
-            font-size: 2.5em;
+            background-color: rgb(80, 0, 130);
+            /* Western purple overlay */
+            padding: 15px 30px;
+            border-radius: 100px;
+            font-size: 3.5em;
+            text-align: center;
+        }
+
+        .subtitle {
+            display: block;
+            font-size: 0.5em;
+            font-weight: normal;
+            margin-top: 1px;
         }
 
         /* ===== NAVBAR ===== */
         nav {
-            background-color: #4b0082; /* Western purple */
+            background-color: #4b0082;
             overflow: hidden;
         }
 
@@ -57,7 +85,7 @@
             position: relative;
         }
 
-        nav > ul > li {
+        nav>ul>li {
             padding: 14px 20px;
             cursor: pointer;
             color: white;
@@ -68,83 +96,31 @@
             background-color: #5e2b97;
         }
 
-        /* ===== DROPDOWN MENU ===== */
-        nav li ul {
-            display: none;
-            position: absolute;
-            top: 48px;
-            left: 0;
-            background-color: #5e2b97;
-            min-width: 200px;
-            z-index: 999;
-            flex-direction: column;
-        }
-
-        nav li:hover > ul {
-            display: flex;
-        }
-
-        nav li ul li {
-            padding: 12px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            color: white;
-        }
-
-        nav li ul li:hover {
-            background-color: #764abc;
-        }
-
-        /* ===== CONTENT SECTIONS ===== */
-        section {
-            padding: 50px 10%;
-            max-width: 1000px;
-            margin: auto;
-            display: none; /* Hide all sections initially */
-        }
-
-        section.active {
-            display: block; /* Only the active section is shown */
-        }
-
-        section h2 {
-            color: #4b0082;
-            border-bottom: 3px solid #4b0082;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background-color: #eee;
-            color: #333;
-            font-size: 0.9em;
-            text-align: center;
-            padding: 30px 10px;
-        }
-
-        footer p {
-            margin: 5px 0;
-        }
-
         /* ===== CAROUSEL STYLES ===== */
         /* ===== IMAGE CAROUSEL ===== */
         .carousel {
             position: relative;
-            max-width: 100%;  /* Ensures the carousel fits within the screen width */
+            max-width: 100%;
+            /* Ensures the carousel fits within the screen width */
             margin-top: 20px;
             display: block;
-            overflow: hidden; /* Prevents overflow of images */
+            overflow: hidden;
+            /* Prevents overflow of images */
         }
 
         .carousel-images {
             display: flex;
-            transition: transform 1s ease-in-out; /* Smooth transition for sliding images */
+            transition: transform 1s ease-in-out;
+            /* Smooth transition for sliding images */
         }
 
         .carousel-images img {
-            width: 100%;  /* Makes each image take up 100% of the container width */
-            height: auto;  /* Maintain aspect ratio */
-            object-fit: cover;  /* Ensures images cover the container without distortion */
+            width: 100%;
+            /* Makes each image take up 100% of the container width */
+            height: auto;
+            /* Maintain aspect ratio */
+            object-fit: cover;
+            /* Ensures images cover the container without distortion */
         }
 
         /* ===== CAROUSEL BUTTONS ===== */
@@ -166,18 +142,19 @@
             font-size: 1.5em;
         }
 
-        
         .carousel-button:hover {
-            background-color: #6a2a97; /* Darker purple on hover */
+            background-color: #6a2a97;
+            /* Darker purple on hover */
         }
 
-
         .carousel-button:focus {
-            outline: none; /* Remove outline for a cleaner look */
+            outline: none;
+            /* Remove outline for a cleaner look */
         }
 
         .carousel-button:active {
-            transform: scale(0.95); /* Small animation on button press */
+            transform: scale(0.95);
+            /* Small animation on button press */
         }
 
         .carousel-images::before {
@@ -187,8 +164,108 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(80, 0, 130, 0.4); /* Light purple gradient */
+            background: rgba(80, 0, 130, 0.4);
+            /* Light purple gradient */
             z-index: 1;
+        }
+
+        /* ===== DROPDOWN MENU ===== */
+        nav li ul {
+            display: none;
+            position: absolute;
+            top: 48px;
+            left: 0;
+            background-color: #5e2b97;
+            min-width: 200px;
+            z-index: 999;
+            flex-direction: column;
+        }
+
+        nav li:hover>ul {
+            display: flex;
+        }
+
+        nav li ul li {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        nav li ul li:hover {
+            background-color: #764abc;
+        }
+
+        /* ===== CONTENT SECTIONS ===== */
+        section {
+            padding: 50px 10%;
+            max-width: 1000px;
+            margin: auto;
+            display: none;
+            /* All sections are hidden by default */
+        }
+
+        section.active {
+            display: block;
+            /* Show only the active section */
+        }
+
+        section h2 {
+            color: #4b0082;
+            border-bottom: 3px solid #4b0082;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+
+        /* ===== Welcome - Updates SECTION ===== */
+        .text-image-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .text-image-container p {
+            flex: 1;
+            margin-right: 15px;
+        }
+
+        .inline-photo {
+            width: 100px;
+            height: auto;
+            object-fit: contain;
+            flex-shrink: 0;
+            cursor: zoom-in;
+        }
+
+        /* Updates image style */
+        .inline-photo {
+            display: block;
+            /* forces images to stack vertically */
+            max-width: 300px;
+            /* adjust max width as needed */
+            height: auto;
+            margin-top: 10px;
+            /* spacing above image */
+            border-radius: 5px;
+            /* optional rounded corners */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            /* subtle shadow */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #eee;
+            color: #333;
+            font-size: 0.9em;
+            text-align: center;
+            padding: 30px 10px;
+        }
+
+        footer p {
+            margin: 5px 0;
         }
 
         /* ===== RESPONSIVE DESIGN ===== */
@@ -196,28 +273,32 @@
             header {
                 height: 200px;
             }
+
             header h1 {
                 font-size: 1.8em;
             }
+
             nav ul {
                 flex-direction: column;
             }
+
             nav li ul {
                 position: static;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- ===== HEADER SECTION ===== -->
     <header>
-        <h1>Grbić Lab – The Spider Mite Team</h1>
+        <h1>Grbić Lab<br><span class="subtitle">The Spider Mite Team</span></h1>
     </header>
 
     <!-- ===== IMAGE CAROUSEL ===== -->
     <div class="carousel">
         <div class="carousel-images">
-            <!-- Put images inside the "images" folder, and use appropriate names -->
+            <!-- Put images inside the "Images" folder, and use appropriate names -->
             <img src="Images/lab1.jpg" alt="">
             <img src="Images/lab2.JPG" alt="">
             <img src="Images/lab3.JPG" alt="">
@@ -249,103 +330,317 @@
     <!-- ===== MAIN CONTENT ===== -->
     <section id="welcome">
         <h2>Welcome to the Grbić Lab</h2>
-        <p>We are the Spider Mite Team at Western University in Ontario, Canada. Our research focuses 
-            on the <strong>genomics and genetics of spider mite–host plant interactions, adaptation, and 
-                resistance to pesticides</strong>. Our goal is to understand the molecular and evolutionary 
-            mechanisms driving pest adaptation and to support sustainable agriculture through genomic insights.</p>
+        <ul>
+            <p>
+                We are the Spider Mite Team at Western University in Ontario, Canada. Our research focuses
+                on the <strong>genomics and genetics of spider mite–host plant interactions, adaptation, and
+                    resistance to pesticides</strong>. Our goal is to understand the molecular and evolutionary
+                mechanisms driving pest adaptation and to support sustainable agriculture through genomic insights.
+            </p>
+        </ul>
+
+        <h2>Lab Updates</h2>
+        <ul>
+            <li>
+                <p>
+                    <strong>Oct 31st, 2025 -</strong> 15th Spider Mite Genome Meeting, happened in Logrono, La Rioja,
+                    Spain, October 27th to 29th, 2025
+                    (<a href="https://www.unirioja.es/actividades/15th-spider-mite-genome-meeting/" target="_blank"
+                        rel="noopener noreferrer" style="color: purple;">Universidad de La Rioja, 2025</a>)
+                </p>
+                <!-- <img src="Images/spidermitemeeting.jpg" alt="Spider mite" class="inline-photo"> -->
+            </li>
+
+            <li>
+                <p>
+                    <strong>Oct 27th, 2025 -</strong> The Grbic Lab was present at the 162nd Entomological Society of
+                    Ontario Annual General Meeting
+                    and Ontario Pest Management Conference at the Royal Botanic Gardens, Burlington, Ontario, from
+                    October 24-26, 2025
+                    (<a href="https://www.unirioja.es/actividades/15th-spider-mite-genome-meeting/" target="_blank"
+                        rel="noopener noreferrer" style="color: purple;">Universidad de La Rioja, 2025</a>)
+                </p>
+                <!--  <img src="Images/ESO_OPMC1.jpg" alt="Spider mite" class="inline-photo">
+                <img src="Images/ESO_OPMC2.jpg" alt="Spider mite" class="inline-photo"> -->
+            </li>
+
+            <li>
+                <strong>Oct 10th, 2025 -</strong> We are excited to highlight Grbic Lab's participation in the 2025
+                Canadian Greenhouse Conference. The conference happened in Niagra Falls, Ontario, Canada, October 8th to
+                9th, 2025
+                (<a href="https://www.canadiangreenhouseconference.com/" target="_blank" rel="noopener noreferrer"
+                    style="color: purple;">2025 CGC</a>)
+                </p>
+                <!--  <img src="Images/GC1.jpg" alt="Spider mite" class="inline-photo">
+                <img src="Images/GC2.JPG" alt="Spider mite" class="inline-photo"> -->
+            </li>
+        </ul>
+
     </section>
 
     <section id="research">
         <h2>Research</h2>
         <p>We have a long-standing dedication to research excellence
-                        in biology. We focus on genomics and genetics of plant-host adaptation
-                        and mite-plant interactions. Building on decades of fundamental
-                        research—including the pioneering sequencing of the two-spotted spider
-                        mite (<i>Tetranychus urticae</i>) genome—we have developed innovative diagnostic
-                        tools for quick pesticide resistance assessment, along with RNAi-based
-                        bioacaricides to control mite-resistant populations.</p>
+            in biology. We focus on genomics and genetics of plant-host adaptation
+            and mite-plant interactions. Building on decades of fundamental
+            research—including the pioneering sequencing of the two-spotted spider
+            mite (<i>Tetranychus urticae</i>) genome—we have developed innovative diagnostic
+            tools for quick pesticide resistance assessment, along with RNAi-based
+            bioacaricides to control mite-resistant populations.</p>
     </section>
 
     <section id="people">
-        <h2>People</h2>
+        <h2>Mentors</h2>
         <p>Team members and alumni content...</p>
+        <ul>
+            <li>Dr. Vojislava Grbić</li>
+            <li>Dr. John Smith</li>
+            <li>Dr. Jane Doe</li>
+        </ul>
     </section>
 
     <section id="services">
         <h2>Services</h2>
-        <p>We have worked closely with farmers, growers, industry, and government to track the pesticide 
-            resistance status of two-spotted spider mite (<i>Tetranychus urticae</i>) populations. More recently, we 
-            have expanded our services to include identifying and characterizing the biodiversity of tetranychid 
-            pests present in Ontario's agricultural systems, as well as assessing the suitability of current and 
+        <p>We have worked closely with farmers, growers, industry, and government to track the pesticide
+            resistance status of two-spotted spider mite (<i>Tetranychus urticae</i>) populations. More recently, we
+            have expanded our services to include identifying and characterizing the biodiversity of tetranychid
+            pests present in Ontario's agricultural systems, as well as assessing the suitability of current and
             evolving integrated pest management (IPM), which previously focused solely on <i>T. urticae</i>.</p>
     </section>
 
     <section id="opportunities">
         <h2>Opportunities - We are hiring!</h2>
-        <p>You can email me (<a href="https://www.uwo.ca/biology//people/faculty.html#Vojislava%20Grbic" 
-            target="_blank" rel="noopener noreferrer" style="color: purple;">
-            Dr. Vojislava Grbić</a>) for information about available positions, but please review 
-            the details below and the <a href="https://www.uwo.ca/biology//graduate/future-students/admission-requirements.html" 
-            target="_blank" rel="noopener noreferrer" style="color: purple;">
-            Western’s Biology Prospective Graduate Student webpage</a> to make sure you 
+        <p>You can email me (<a href="https://www.uwo.ca/biology//people/faculty.html#Vojislava%20Grbic" target="_blank"
+                rel="noopener noreferrer" style="color: purple;">
+                Dr. Vojislava Grbić</a>) for information about available positions, but please review
+            the details below and the <a
+                href="https://www.uwo.ca/biology//graduate/future-students/admission-requirements.html" target="_blank"
+                rel="noopener noreferrer" style="color: purple;">
+                Western’s Biology Prospective Graduate Student webpage</a> to make sure you
             meet the qualifications for the Biology program.</p>
-        <p><strong>General Information</strong><br> 
-            <p>In the Grbić Lab, we focus on applying genomics and genetics to understand 
-                mite-plant interactions, aiming to develop next-generation integrated pest 
-                management strategies tailored for sustainable agriculture. Our research 
-                combines cutting-edge science with practical agricultural impact. </p> 
-            <p> We highly value collaborative teamwork, where every member takes ownership 
-                of their projects and contributes actively to our collective success. 
-                A strong attitude of curiosity and a desire for continuous learning 
-                are essential qualities in our lab. </p> 
-            <p> We encourage motivated students and colleagues to engage deeply in research, 
-                helping develop their skills and fostering an environment of dynamic 
-                collaboration. Our lab believes in mentoring hands-on researchers who 
-                are eager to grow both academically and professionally, sharing ideas and 
-                advancing the field together. </p>
+        <p><strong>General Information</strong><br>
+        <p>In the Grbić Lab, we focus on applying genomics and genetics to understand
+            mite-plant interactions, aiming to develop next-generation integrated pest
+            management strategies tailored for sustainable agriculture. Our research
+            combines cutting-edge science with practical agricultural impact. </p>
+        <p> We highly value collaborative teamwork, where every member takes ownership
+            of their projects and contributes actively to our collective success.
+            A strong attitude of curiosity and a desire for continuous learning
+            are essential qualities in our lab. </p>
+        <p> We encourage motivated students and colleagues to engage deeply in research,
+            helping develop their skills and fostering an environment of dynamic
+            collaboration. Our lab believes in mentoring hands-on researchers who
+            are eager to grow both academically and professionally, sharing ideas and
+            advancing the field together. </p>
         </p>
-            <p><strong>Lab Values and Expectations</strong><br>
-                <p> Inclusivity and diversity are fundamental principles in our team. We prioritize 
-                    open, respectful collaboration among students and colleagues from all backgrounds 
-                    and many countries, reflecting our commitment to a multicultural environment. </p>
-                <p> Prospective members should come prepared with enthusiasm for scientific inquiry, 
-                    readiness for hands-on work, and the initiative to independently learn new techniques. 
-                    Ownership of projects and proactive communication are key to thriving here. </p>
-                <p> Commitment to academic excellence, paired with strong teamwork skills and a 
-                    proactive approach to challenges, shapes the foundation of our lab culture. </p> 
-            </p>
+        <p><strong>Lab Values and Expectations</strong><br>
+        <p> Inclusivity and diversity are fundamental principles in our team. We prioritize
+            open, respectful collaboration among students and colleagues from all backgrounds
+            and many countries, reflecting our commitment to a multicultural environment. </p>
+        <p> Prospective members should come prepared with enthusiasm for scientific inquiry,
+            readiness for hands-on work, and the initiative to independently learn new techniques.
+            Ownership of projects and proactive communication are key to thriving here. </p>
+        <p> Commitment to academic excellence, paired with strong teamwork skills and a
+            proactive approach to challenges, shapes the foundation of our lab culture. </p>
+        </p>
     </section>
 
-
-
     <section id="publications">
-        <h2>Publications</h2>
-        <p><a href="https://scholar.google.com/citations?user=eNmj7xcAAAAJ&hl=pt-BR&oi=ao" target="_blank" style="text-decoration:none;">
-             <button type="button" style="padding: 4px 8px; font-size: 13px; cursor: pointer; text-transform: none;">
-             Find more of our work on Google Scholar
-             </button>
+        <h2>Highlights</h2>
+        <ul>
+            <li>
+                <p>Mity model: <i>Tetranychus urticae</i>, a candidate for chelicerate model organism (<a
+                        href="https://onlinelibrary.wiley.com/doi/abs/10.1002/bies.20564?casa_token=vUE5z67bqwsAAAAA:BEl66dX5zaVuAkFF4KVCs1LXIIplGyKETjtYHKa8QHEyotV3cqikSRY14g39XY5VMBGw9SgZo5tQJeEz"
+                        target="_blank" rel="noopener noreferrer" style="color: purple;">Grbic, M., et al., 2007</a>)
+                </p>
+            </li>
+            <li>
+                <p>The genome of <i>Tetranychus urticae</i> reveals herbivorous pest adaptations (<a
+                        href="https://www.nature.com/articles/nature10640" target="_blank" rel="noopener noreferrer"
+                        style="color: purple;">Grbic, M., et al., 2011</a>)
+                </p>
+            </li>
+            <li>
+                <p>Plant-Herbivore Interactions: A Case of an Extreme Generalist, the Two-Spotted Spider Mite
+                    <i>Tetranychus urticae</i> (<a
+                        href="https://apsjournals.apsnet.org/doi/full/10.1094/MPMI-07-17-0168-CR" target="_blank"
+                        rel="noopener noreferrer" style="color: purple;">Santamaria, M. E., et al., 2013</a>)
+                </p>
+            </li>
+            <li>
+                <p>Rapid specialization of counter defenses enables two-spotted spider mite to adapt to novel plant
+                    hosts (<a href="https://academic.oup.com/plphys/article/187/4/2608/6360475" target="_blank"
+                        rel="noopener noreferrer" style="color: purple;">Salehipourshirazi, G., et al., 2021</a>)
+                </p>
+            </li>
+            <li>
+                <p>Host adaptation and specialization in Tetranychidae mites (<a
+                        href="AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAA2owggNmBgkqhkiG9w0BBwagggNXMIIDUwIBADCCA0wGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMq0OmggfcG8_q0"
+                        target="_blank" rel="noopener noreferrer" style="color: purple;">Bruinsma, K., et al., 2023</a>)
+                </p>
+            </li>
+        </ul>
+
+        <h2>All Publications</h2>
+        <p><a href="https://scholar.google.com/citations?user=eNmj7xcAAAAJ&hl=pt-BR&oi=ao" target="_blank"
+                style="text-decoration:none;">
+                <button type="button" style="padding: 4px 8px; font-size: 13px; cursor: pointer; text-transform: none;">
+                    Find more of our work on Google Scholar
+                </button>
             </a>
         </p>
     </section>
 
     <section id="links">
-        <h2>Useful Links</h2>
-        <p>Links to other resources...</p>
+        <h2>Spider Mites</h2>
+        <ul>
+            <li>
+                <p>The complete genome of <i>Tetranychus urticae</i> (<a
+                        href="https://www.nature.com/articles/nature10640" target="_blank" rel="noopener noreferrer"
+                        style="color: purple;">Grbić et al., 2011</a>)
+                </p>
+            </li>
+
+            <li>
+                <p>A comprehensive database for the Tetranychidae (<a href="https://www.nature.com/articles/nature10640"
+                        target="_blank" rel="noopener noreferrer" style="color: purple;">Spider Mites Web</a>)
+                </p>
+            </li>
+            <li>
+                <p>Web-Spinning Spider Mite Factsheet (<a
+                        href="https://extension.usu.edu/planthealth/uppdl/files/factsheet/web-spinning-spider-mite97.pdf"
+                        target="_blank" rel="noopener noreferrer" style="color: purple;">Alston et al., 2011</a>)
+                </p>
+            </li>
+            <li>
+                <p>GreenLight Biosciences (<a
+                        href="https://www.greenlightbiosciences.com/articles/in-the-pipeline-two-spotted-spider-mite"
+                        target="_blank" rel="noopener noreferrer" style="color: purple;">In the pipeline</a>)
+                </p>
+            </li>
+            <li>
+                <p>Mites: Ecology, Evolution & Behaviour: Life at a Microscale (<a
+                        href="https://books.google.ca/books?id=kRHHBAAAQBAJ&printsec=copyright&redir_esc=y#v=onepage&q&f=false"
+                        target="_blank" rel="noopener noreferrer" style="color: purple;">Walter, D. E., & Proctor, H. C.
+                        1999</a>)
+                </p>
+            </li>
+        </ul>
+
+        <h2>Scientific Writing and Communication</h2>
+        <ul>
+            <li>
+                <p>Why you should write your PhD thesis backwards (<a
+                        href="https://www.nature.com/articles/d41586-025-01061-8" target="_blank"
+                        rel="noopener noreferrer" style="color: purple;">Toivonen, T., 2025</a>)
+                </p>
+            </li>
+            <li>
+                <p>How to write a first-class paper (<a href="https://www.nature.com/articles/d41586-018-02404-4"
+                        target="_blank" rel="noopener noreferrer" style="color: purple;">Gewin, V., 2018</a>)
+                </p>
+            </li>
+            <li>
+                <p>10 Tips for Improving Your Public Speaking Skills (<a
+                        href="https://professional.dce.harvard.edu/blog/10-tips-for-improving-your-public-speaking-skills/"
+                        target="_blank" rel="noopener noreferrer" style="color: purple;">Harvard DCE, North, M.,
+                        2024</a>)
+                </p>
+            </li>
+            <li>
+                <p>How to make a great presentation (<a
+                        href="https://www.ted.com/playlists/574/how_to_make_a_great_presentation" target="_blank"
+                        rel="noopener noreferrer" style="color: purple;">TED Talks</a>)
+                </p>
+            </li>
+            <li>
+                <p>The first 20 hours - how to learn anything (<a href="https://www.youtube.com/watch?v=5MgBikgcWnY"
+                        target="_blank" rel="noopener noreferrer" style="color: purple;">TEDx Talks, 2013</a>)
+                </p>
+            </li>
+        </ul>
+
+        <h2>Experimentation, Statistics and Data Analysis</h2>
+        <ul>
+            <li>
+                <p>Experimental Design and Statistical Methods (Belzile, Léo., 2025|<a
+                        href="https://lbelzile.github.io/math80667a/" target="_blank" rel="noopener noreferrer"
+                        style="color: purple;">webbook</a>,<a
+                        href="hhttps://lbelzile.github.io/math80667a/MATH80667A-EDSM.pdf" target="_blank"
+                        rel="noopener noreferrer" style="color: purple;"> textbook</a>)
+                </p>
+            </li>
+            <li>
+                <p>Experimental Design and Analysis (<a href="https://www.stat.cmu.edu/~hseltman/309/Book/Book.pdf"
+                        target="_blank" rel="noopener noreferrer" style="color: purple;">Seltman, H. J., 2018</a>)
+                </p>
+            </li>
+            <li>
+                <p>How thoughtful experimental design can empower biologists in the omics era (<a
+                        href="https://www.nature.com/articles/s41467-025-62616-x" target="_blank"
+                        rel="noopener noreferrer" style="color: purple;">Wagner, M. R., and Kleiner, M., 2025</a>)
+                </p>
+            </li>
+            <li>
+                <p>R for Data Science (<a href="http://r4ds.hadley.nz/" target="_blank" rel="noopener noreferrer"
+                        style="color: purple;">Wickham, H., and Grolemund, G., 2023</a>)
+                </p>
+            </li>
+            <li>
+                <p>Hands-On Programming with R - RStudio Education (<a href="https://rstudio-education.github.io/hopr/"
+                        target="_blank" rel="noopener noreferrer" style="color: purple;">Grolemund, G., 2014</a>)
+                </p>
+            </li>
+            <li>
+                <p>QIAGEN Knowledge Hub (<a href="https://www.qiagen.com/us/knowledge-and-support/knowledge-hub"
+                        target="_blank" rel="noopener noreferrer" style="color: purple;">QIAGEN|Knowledge Hub</a>)
+                </p>
+            </li>
+            <li>
+                <p>OrcAE - Online Resource for Community Annotation of Eukaryotes (<a
+                        href="https://bioinformatics.psb.ugent.be/orcae/" target="_blank" rel="noopener noreferrer"
+                        style="color: purple;">Linsmith, G., et al., 2019</a>)
+                </p>
+            </li>
+            <li>
+                <p>BLAST - Basic Local Alignment Search Tool (<a
+                        href="https://blast.ncbi.nlm.nih.gov/Blast.cgi#alnHdr_381393164" target="_blank"
+                        rel="noopener noreferrer" style="color: purple;">Altschul, Stephen F., et al., 1990</a>)
+                </p>
+            </li>
+        </ul>
     </section>
 
     <section id="contact">
-        <h2>Contact Information</h2>
-        <p><strong>Grbić Lab – Spider Mite Team</strong><br>
-           Department of Biology, Western University<br>
+        <h2>Grbić Lab</h2>
+        <p><strong>Grbić Lab</strong><br>
+            Department of Biology, Western University<br>
             1151 Richmond Street<br>
             London, Ontario, Canada, N6A 3K7<br>
-            Tel: 519-850-2542
-           Email: <a href="mailto:vgrbic@uwo.ca">vgrbic@uwo.ca</a></p>
+            Tel: 519-850-2542<br>
+            Email: <a href="mailto:vgrbic@uwo.ca">vgrbic@uwo.ca</a>
+        </p>
+
+        <h2>Got spider mites? Send us samples — we're ready to help!</h2>
+        <p>If you have spider mite samples that you'd like us to analyze for pesticide resistance or
+            species identification, please check the <a href="Attachments/sampling_protocol.pdf" target="_blank"
+                rel="noopener noreferrer" style="color: purple;">sampling protocol</a> and ship them to the address
+            below.</p>
+        <p><strong>Courier Address</strong><br>
+            Grbic Lab<br>
+            Western University<br>
+            Science Stores<br>
+            1151 Richmond St<br>
+            Chemistry Bldg<br>
+            Rm 003, Dock 11<br>
+            London, ON N6A 5B7<br>
+        </p>
     </section>
 
     <!-- ===== FOOTER ===== -->
     <footer>
-        <p>&copy; <span id="year"></span> Grbić Lab, Department of Biology, Western University, ON, Canada. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Grbić Lab, Department of Biology, Western University, ON, Canada. All rights
+            reserved.</p>
         <p>Content for research and educational purposes only.</p>
     </footer>
 
@@ -375,33 +670,66 @@
             });
         });
 
-
         // Carousel functionality
-        let currentIndex = 0;
-        const images = document.querySelectorAll(".carousel-images img");
+        const carouselImages = document.querySelector(".carousel-images");
+        const images = carouselImages.querySelectorAll("img");
         const totalImages = images.length;
 
+        // Clone first and last images for seamless infinite loop
+        const firstClone = images[0].cloneNode(true);
+        const lastClone = images[totalImages - 1].cloneNode(true);
+
+        carouselImages.appendChild(firstClone);
+        carouselImages.insertBefore(lastClone, images[0]);
+
+        let currentIndex = 1; // Start from the first real image (after lastClone)
+
         function showImage(index) {
-            if (index >= totalImages) currentIndex = 0;
-            if (index < 0) currentIndex = totalImages - 1;
-            document.querySelector(".carousel-images").style.transform = `translateX(-${100 * currentIndex}%)`;
+            carouselImages.style.transition = 'transform 1s ease-in-out';
+            carouselImages.style.transform = `translateX(-${100 * index}%)`;
         }
 
+        // Listen for transition end to reset position instantly if at clone
+        carouselImages.addEventListener('transitionend', () => {
+            const imgs = carouselImages.querySelectorAll("img");
+            if (currentIndex === 0) {
+                carouselImages.style.transition = 'none';
+                currentIndex = imgs.length - 2;
+                carouselImages.style.transform = `translateX(-${100 * currentIndex}%)`;
+            }
+            if (currentIndex === imgs.length - 1) {
+                carouselImages.style.transition = 'none';
+                currentIndex = 1;
+                carouselImages.style.transform = `translateX(-${100 * currentIndex}%)`;
+            }
+        });
+
+        // Next button
         document.getElementById("nextBtn").addEventListener("click", () => {
+            const imgs = carouselImages.querySelectorAll("img");
+            if (currentIndex >= imgs.length - 1) return; // Prevent over scroll
             currentIndex++;
             showImage(currentIndex);
         });
 
+        // Prev button
         document.getElementById("prevBtn").addEventListener("click", () => {
+            if (currentIndex <= 0) return; // Prevent under scroll
             currentIndex--;
             showImage(currentIndex);
         });
 
-        // Auto-cycle images every 4 seconds
+        // Initialize carousel position
+        showImage(currentIndex);
+
+        // Auto cycle every 4 seconds (optional)
         setInterval(() => {
+            const imgs = carouselImages.querySelectorAll("img");
+            if (currentIndex >= imgs.length - 1) return;
             currentIndex++;
             showImage(currentIndex);
         }, 4000);
     </script>
 </body>
+
 </html>
