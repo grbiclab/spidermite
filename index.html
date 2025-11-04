@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grbić Lab – Spider Mite Team | Western University</title>
     <link rel="icon" href="Images/iconweb.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
         /* ===== BASIC STYLES ===== */
         body {
@@ -255,6 +257,81 @@
         }
 
 
+        /* ===== People Section ===== */
+        .team-member-right {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 2rem;
+        }
+
+        .member-photo img {
+            width: 300px;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .member-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .member-name {
+            font-size: 1.2rem;
+            color: rgb(80, 0, 130);
+            text-decoration: none;
+        }
+
+        .member-name:hover {
+            text-decoration: underline;
+        }
+
+        .member-info p {
+            margin: 0.5rem 0;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 0.5rem;
+            align-self: flex-start;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            color: rgb(80, 0, 130);
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.3);
+            color: rgb(120, 0, 180);
+        }
+
+        /* Responsive: Stack vertically on mobile */
+        @media (max-width: 768px) {
+            .team-member-right {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .member-photo img {
+                width: 200px;
+                margin-bottom: 1rem;
+            }
+
+            .social-icons {
+                align-self: center;
+                /* center icons on mobile */
+            }
+        }
+
+
         /* ===== FOOTER ===== */
         footer {
             background-color: #eee;
@@ -339,6 +416,7 @@
             </p>
         </ul>
 
+        <br>
         <h2>Lab Updates</h2>
         <ul>
             <li>
@@ -358,7 +436,7 @@
                     and Ontario Pest Management Conference at the Royal Botanic Gardens, Burlington, Ontario, from
                     October 24-26, 2025
                     (<a href="https://www.unirioja.es/actividades/15th-spider-mite-genome-meeting/" target="_blank"
-                        rel="noopener noreferrer" style="color: purple;">Universidad de La Rioja, 2025</a>)
+                        rel="noopener noreferrer" style="color: purple;">2025 ESO|OPMC</a>)
                 </p>
                 <!--  <img src="Images/ESO_OPMC1.jpg" alt="Spider mite" class="inline-photo">
                 <img src="Images/ESO_OPMC2.jpg" alt="Spider mite" class="inline-photo"> -->
@@ -369,7 +447,7 @@
                 Canadian Greenhouse Conference. The conference happened in Niagra Falls, Ontario, Canada, October 8th to
                 9th, 2025
                 (<a href="https://www.canadiangreenhouseconference.com/" target="_blank" rel="noopener noreferrer"
-                    style="color: purple;">2025 CGC</a>)
+                    style="color: #4b0082;">2025 CGC</a>)
                 </p>
                 <!--  <img src="Images/GC1.jpg" alt="Spider mite" class="inline-photo">
                 <img src="Images/GC2.JPG" alt="Spider mite" class="inline-photo"> -->
@@ -379,24 +457,462 @@
     </section>
 
     <section id="research">
-        <h2>Research</h2>
-        <p>We have a long-standing dedication to research excellence
-            in biology. We focus on genomics and genetics of plant-host adaptation
-            and mite-plant interactions. Building on decades of fundamental
-            research—including the pioneering sequencing of the two-spotted spider
-            mite (<i>Tetranychus urticae</i>) genome—we have developed innovative diagnostic
-            tools for quick pesticide resistance assessment, along with RNAi-based
-            bioacaricides to control mite-resistant populations.</p>
+        <h2>Overview</h2>
+        <ul>
+            <p>
+                We have a long-standing dedication to research excellence
+                in biology. We focus on <strong>genomics and genetics of plant-host adaptation
+                    and mite-plant interactions</strong>. Building on decades of fundamental
+                research—including the pioneering sequencing of the Two-Spotted Spider
+                Mite (<i>Tetranychus urticae</i>) genome—we have developed innovative diagnostic
+                tools for quick <strong>pesticide resistance assessment</strong>, along with <strong>RNAi-based
+                    bioacaricides</strong> to control mite-resistant populations.
+            </p>
+        </ul>
+
+        <br>
+        <h2>Lab Streams</h2>
+        <ul>
+            <p>
+                <li><strong>Plant–Herbivore Interactions and Adaptation</strong></li>
+                Integrating metabolomics and molecular analyses to understand mite adaptation to different hosts<br>
+            <ul>
+                <li>In the pipeline...</li>
+            </ul>
+            </p>
+            <br>
+            <p>
+                <li><strong>Functional Genomics and Digestive Physiology</strong></li>
+                Molecular dissection of digestive function using <i>in situ</i> hybridization<br>
+            <ul>
+                <li>In the pipeline...</li>
+            </ul>
+            </p>
+            <br>
+            <p>
+                <li><strong>Pesticide Resistance</strong></li>
+                Genetic, biochemical, and evolutionary dynamics of pesticide resistance<br>
+            <ul>
+                <li>In the pipeline...</li>
+            </ul>
+            </p>
+            <br>
+            <p>
+                <li><strong>Species Characterization</strong></li>
+                Integrative assessment of biodiversity and pest potential in emerging spider mite species<br>
+            <ul>
+                <li>In the pipeline...</li>
+            </ul>
+            </p>
+        </ul>
     </section>
 
     <section id="people">
+        <!-- ================= MENTORS ================= -->
+        <br>
         <h2>Mentors</h2>
-        <p>Team members and alumni content...</p>
-        <ul>
-            <li>Dr. Vojislava Grbić</li>
-            <li>Dr. John Smith</li>
-            <li>Dr. Jane Doe</li>
-        </ul>
+
+        <!--Dr. Vojislava Grbić-->
+        <div class="team-member-right">
+            <div class="member-info">
+                <a href="https://scholar.google.com/citations?user=eNmj7xcAAAAJ&hl=pt-BR&oi=ao" target="_blank"
+                    rel="noopener noreferrer" class="member-name">
+                    <strong>Dr. Vojislava Grbić</strong></a>
+                <p><strong><i>Professor</i></strong> | <strong><i>PI</i></strong>
+
+
+                <ul>
+                    Dr. Vojislava Grbić is an expert in plant–herbivore interactions, molecular plant biology,
+                    and spider mite genomics. Her research integrates genomics, metabolomics, and molecular tools
+                    to uncover the mechanisms of mite adaptation, pesticide resistance, and plant defense, as well
+                    as to advance Tetranychus urticae as a chelicerate model organism. She also contributes to the
+                    identification and characterization, and assessment of pest potential of emerging mite species,
+                    working closely with government agencies, industry partners, and Ontario’s growers to develop
+                    science-based spider mite management strategies that support sustainable agriculture in Canada.
+                </ul>
+                </p>
+                <p>
+                    <strong>Research Areas</strong>
+                <ul>
+                    <li>Arabidopsis developmental genetics</li>
+                    <li>Genomics of plant-pest interaction</li>
+                    <li>Spider mite biology and evolution</li>
+                    <li>Pesticide resistance mechanisms</li>
+                    <li>Plant defense responses</li>
+                    <li>Biotechnology</li>
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Degrees and Institutions</strong>
+                <ul>
+                    <li>PhD (Genetics), University of Wisconsin</li>
+                    <li>MSc (Plant Genetics), University of Novi Sad</li>
+                    <li>BSc (Plant Breeding), University of Novi Sad</li>
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Teaching</strong>
+                <ul>
+                    <li>Biology 3593B – Genetic Engineering</li>
+                    <li>Biology 4950G – Seminar in Genetics</li>
+                </ul>
+                </p>
+
+                <div class="social-icons">
+                    <a href="https://ca.linkedin.com/in/vojislava-grbic-6a653b104" target="_blank"
+                        rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://scholar.google.com/citations?user=eNmj7xcAAAAJ&hl=pt-BR&oi=ao" target="_blank"
+                        rel="noopener noreferrer"><i class="fa-brands fa-google"></i></a>
+                    <a href="https://www.researchgate.net/profile/Vojislava-Grbic" target="_blank"
+                        rel="noopener noreferrer"><i class="fa-brands fa-researchgate"></i></a>
+                    <!--<a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>-->
+                </div>
+            </div>
+            <div class="member-photo">
+                <img src="Images/V_Grbic.jpg" alt="Dr. Vojislava Grbić">
+            </div>
+        </div>
+
+
+        <!--Dr. Miodrag Grbić-->
+        <div class="team-member-right">
+            <div class="member-info">
+                <a href="https://scholar.google.com/citations?user=rdmiDT4AAAAJ&hl=pt-BR&oi=ao" target="_blank"
+                    rel="noopener noreferrer" class="member-name">
+                    <strong>Dr. Miodrag Grbić</strong>
+                </a>
+                <p><strong><i>Professor</i></strong>
+
+
+                <ul>
+                    Dr. Miodrag Grbić is a leading expert in arthropod genomics and plant–herbivore interactions.
+                    His group has developed <em>Tetranychus urticae</em> (Two-Spotted Spider Mite) as a model arthropod
+                    herbivore,
+                    studying its rapid life cycle, host range of over 1000 plants, and mechanisms of pesticide
+                    resistance.
+                    His research integrates genomics, metabolomics, and molecular tools to advance spider mite biology,
+                    genome analysis, environmentally sound pest control strategies, and biotechnology applications for
+                    sustainable agriculture.
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Research Areas</strong>
+                <ul>
+                    <li>Arthropod genomics and spider mite biology</li>
+                    <li>Evolution of developmental mechanisms</li>
+                    <li>RNAi-based pest control</li>
+                    <li>Spider mite silk as natural bionanomaterial</li>
+                    <li>Molecular plant–herbivore interactions</li>
+                    <li>Biotechnology applications for sustainable agriculture</li>
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Degrees and Institutions</strong>
+                <ul>
+                    <li>Assistant Professor, Department of Biology, University of Western Ontario, Canada (1997–2003)
+                    </li>
+                    <li>Adjunct Professor, Wayne State University, USA (2003–present)</li>
+                    <li>Human Frontier Postdoctoral Fellow, Univ. of Cambridge, UK (1996–1998)</li>
+                    <li>NSF Postdoctoral Fellow, University of Wisconsin, Madison, USA (1995–1996)</li>
+                    <li>Ph.D. Developmental Biology & Entomology, University of Wisconsin, Madison, USA (1989–1995)</li>
+                    <li>M.Sc. Entomology, University of Novi Sad, Yugoslavia (1985–1988)</li>
+                    <li>B.Sc. Entomology, University of Novi Sad, Yugoslavia (1979–1983)</li>
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Teaching</strong>
+                <ul>
+                    <li>Biology 4510G – Selected Topics in Genetics</li>
+                    <li>Biology 4560B – Human Molecular Genetics</li>
+                </ul>
+                </p>
+
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/username" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://scholar.google.com/citations?user=rdmiDT4AAAAJ&hl=pt-BR&oi=ao" target="_blank"
+                        rel="noopener noreferrer"><i class="fa-brands fa-google"></i></a>
+                    <a href="https://www.researchgate.net/scientific-contributions/Miodrag-Grbic-71545201"
+                        target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-researchgate"></i></a>
+                    <!--<a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>-->
+                </div>
+            </div>
+            <div class="member-photo">
+                <img src="Images/iconweb.jpg" alt="Dr. Miodrag Grbić">
+            </div>
+        </div>
+
+        <!--Dr. Vladimir Zhurov-->
+        <div class="team-member-right">
+            <div class="member-info">
+                <a href="https://scholar.google.com/citations?user=rdmiDT4AAAAJ&hl=pt-BR&oi=ao" target="_blank"
+                    rel="noopener noreferrer" class="member-name">
+                    <strong>Dr. Vladimir Zhurov</strong>
+                </a>
+                <p><strong><i>Research Scientist</i></strong>
+
+
+                <ul>
+                    Dr. Vladimir Zhurov is a Research Scientist at Western University with extensive experience in
+                    genomics
+                    and molecular biology, particularly in studying plant–pest interactions. He has been part of the
+                    Genomics in
+                    Agricultural Pest Management (GAP-M) consortium, contributing to comparative genomics and
+                    transcriptomics of
+                    spider mites. His research integrates RNAi methodologies for pest control, genome optical
+                    mapping, and bioinformatic analyses.
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Research Areas</strong>
+                <ul>
+                    <li>Functional genomics</li>
+                    <li>Molecular biology</li>
+                    <li>Plant–pest interactions</li>
+                    <li>RNA interference (RNAi)</li>
+                    <li>Bioinformatics</li>
+                    <li>Experimental design and data analysis</li>
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Degrees and Institutions</strong>
+                <ul>
+                    <li>Research Scientist, Department of Biology, University of Western Ontario, Canada (2023 –
+                        Present)</li>
+                    <li>Research Associate, Department of Biology, University of Western Ontario, Canada (2012 – 2023)
+                    </li>
+                    <li>Postdoctoral Fellow, Department of Biology, University of Western Ontario, Canada (2010 –2012)
+                    </li>
+                    <li>Postdoctoral Associate, Robarts Research Institute, Canada (2006 – 2010)</li>
+                    <li>Human Frontier Postdoctoral Fellow, Univ. of Cambridge, UK (1996–1998)</li>
+                    <li>NSF Postdoctoral Fellow, University of Wisconsin, Madison, USA (1995–1996)</li>
+                    <li>PhD in Biology, Western University (2005)</li>
+                    <li>MSc in Biology, Western University (2001)</li>
+                    <li>BSc in Biology, St. Petersburg State University (1997)</li>
+                </ul>
+                </p>
+
+                <div class="social-icons">
+                    <a href="https://ca.linkedin.com/in/vzhurov" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://scholar.google.com/citations?user=88Qx3JUAAAAJ&hl=en" target="_blank"
+                        rel="noopener noreferrer"><i class="fa-brands fa-google"></i></a>
+                    <a href="https://www.researchgate.net/profile/Vladimir-Zhurov" target="_blank"
+                        rel="noopener noreferrer"><i class="fa-brands fa-researchgate"></i></a>
+                    <!--<a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>-->
+                </div>
+            </div>
+            <div class="member-photo">
+                <img src="Images/iconweb.jpg" alt="Dr. Vladimir Zhurov">
+            </div>
+        </div>
+
+
+
+        <!-- ================= POSTDOCS ================= -->
+
+        <br>
+        <h2>Postdoctoral Fellows</h2>
+
+        <!--Dr. Postdoc 1-->
+        <div class="team-member-right">
+            <div class="member-info">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="member-name">
+                    <strong>Dr. Postdoc 1</strong>
+                </a>
+                <p><strong><i>Key expertise/technique</i></strong></p>
+
+                <p>
+                <ul>
+                    Short bio.
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Research Areas</strong>
+                <ul>
+                    <li>...</li>
+                    <li>...</li>
+                    <li>...</li>
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Degrees and Institutions</strong>
+                <ul>
+                    <li>...</li>
+                    <li>...</li>
+                    <li>...</li>
+                </ul>
+                </p>
+
+                <div class="social-icons">
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-researchgate"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="member-photo">
+                <img src="Images/iconweb.jpg" alt="Dr. Postdoc 1">
+            </div>
+        </div>
+
+
+        <!-- ================= STUDENTS ================= -->
+
+        <br>
+        <h2>Students</h2>
+
+        <!--Dr. Postdoc 1-->
+        <div class="team-member-right">
+            <div class="member-info">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="member-name">
+                    <strong>Graduate Student 1</strong>
+                </a>
+                <p><strong><i>PhD Candidate</i></strong></p>
+
+                <p>
+                <ul>
+                    Short bio.
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Lab Stream</strong>
+                <ul>
+                    Thesis title
+                    <li>Project</li>
+                    <li>key techniques</li>
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Degrees and Institutions</strong>
+                <ul>
+                    <li>...</li>
+                    <li>...</li>
+                    <li>...</li>
+                </ul>
+                </p>
+
+                <div class="social-icons">
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-researchgate"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="member-photo">
+                <img src="Images/iconweb.jpg" alt="Graduate Student 1">
+            </div>
+        </div>
+
+
+        <!-- ================= ALUMNI ================= -->
+
+        <br>
+        <h2>Alumni</h2>
+
+        <!--Postdoctoral Fellows-->
+        <div>
+            <p><strong><i>Postdoctoral Fellows, Postdoctoral Assistants and Visiting Students</i></strong></p>
+            <ul>
+                <li>
+                    <p><strong>Person1's name</strong> - date | Project: <a href="#" target="_blank"
+                            rel="noopener noreferrer" style="color: purple;">Project (link)</a>
+                    </p>
+                </li>
+                <li>
+                    <p><strong>Person2's name</strong> - date | Project: <a href="#" target="_blank"
+                            rel="noopener noreferrer" style="color: purple;">Project (link)</a>
+                    </p>
+                </li>
+                <li>
+                    <p><strong>Person3's name</strong> - date | Project: <a href="#" target="_blank"
+                            rel="noopener noreferrer" style="color: purple;">Project (link)</a>
+                    </p>
+                </li>
+            </ul>
+        </div><br>
+
+        <!--PhD Students-->
+        <div>
+            <p><strong><i>PhD Students</i></strong></p>
+            <ul>
+                <li>
+                    <p><strong>Person1's name</strong> - date | Thesis: <a href="#" target="_blank"
+                            rel="noopener noreferrer" style="color: purple;">Thesis name (link)</a>
+                    </p>
+                </li>
+                <li>
+                    <p><strong>Person2's name</strong> - date | Thesis: <a href="#" target="_blank"
+                            rel="noopener noreferrer" style="color: purple;">Thesis name (link)</a>
+                    </p>
+                </li>
+                <li>
+                    <p><strong>Person3's name</strong> - date | Thesis: <a href="#" target="_blank"
+                            rel="noopener noreferrer" style="color: purple;">Thesis name (link)</a>
+                    </p>
+                </li>
+            </ul>
+        </div><br>
+
+        <!--MSc Students-->
+        <div>
+            <p><strong><i>MSc Students</i></strong></p>
+            <ul>
+                <li>
+                    <p><strong>Person1's name</strong> - date | Thesis: <a href="#" target="_blank"
+                            rel="noopener noreferrer" style="color: purple;">Thesis name (link)</a>
+                    </p>
+                </li>
+                <li>
+                    <p><strong>Person2's name</strong> - date | Thesis: <a href="#" target="_blank"
+                            rel="noopener noreferrer" style="color: purple;">Thesis name (link)</a>
+                    </p>
+                </li>
+                <li>
+                    <p><strong>Person3's name</strong> - date | Thesis: <a href="#" target="_blank"
+                            rel="noopener noreferrer" style="color: purple;">Thesis name (link)</a>
+                    </p>
+                </li>
+            </ul>
+        </div><br>
+
+        <!--BSc Honour's Students-->
+        <div>
+            <p><strong>BSc Honour's Students</strong></p>
+            <ul>
+                <li>
+                    <p><strong>Person1's name</strong> - date | Thesis: <a href="#" target="_blank"
+                            rel="noopener noreferrer" style="color: purple;">Thesis name (link)</a>
+                    </p>
+                </li>
+                <li>
+                    <p><strong>Person2's name</strong> - date | Thesis: <a href="#" target="_blank"
+                            rel="noopener noreferrer" style="color: purple;">Thesis name (link)</a>
+                    </p>
+                </li>
+                <li>
+                    <p><strong>Person3's name</strong> - date | Thesis: <a href="#" target="_blank"
+                            rel="noopener noreferrer" style="color: purple;">Thesis name (link)</a>
+                    </p>
+                </li>
+            </ul>
+        </div>
     </section>
 
     <section id="services">
@@ -406,43 +922,94 @@
             have expanded our services to include identifying and characterizing the biodiversity of tetranychid
             pests present in Ontario's agricultural systems, as well as assessing the suitability of current and
             evolving integrated pest management (IPM), which previously focused solely on <i>T. urticae</i>.</p>
+        <br>
+        <ul>
+            <p>
+                <li><strong>Assessment of Pesticide Resistance Status</strong></li>
+                ...
+            <ul>
+                <li>In the pipeline...</li>
+            </ul>
+            </p>
+            <br>
+            <p>
+                <li><strong>Species identification</strong></li>
+                ...
+            <ul>
+                <li>In the pipeline...</li>
+            </ul>
+            </p>
+        </ul>
     </section>
 
     <section id="opportunities">
         <h2>Opportunities - We are hiring!</h2>
-        <p>You can email me (<a href="https://www.uwo.ca/biology//people/faculty.html#Vojislava%20Grbic" target="_blank"
-                rel="noopener noreferrer" style="color: purple;">
+        <p>
+            You can email me (<a href="https://www.uwo.ca/biology//people/faculty.html#Vojislava%20Grbic"
+                target="_blank" rel="noopener noreferrer" style="color: purple;">
                 Dr. Vojislava Grbić</a>) for information about available positions, but please review
             the details below and the <a
                 href="https://www.uwo.ca/biology//graduate/future-students/admission-requirements.html" target="_blank"
                 rel="noopener noreferrer" style="color: purple;">
                 Western’s Biology Prospective Graduate Student webpage</a> to make sure you
-            meet the qualifications for the Biology program.</p>
-        <p><strong>General Information</strong><br>
-        <p>In the Grbić Lab, we focus on applying genomics and genetics to understand
-            mite-plant interactions, aiming to develop next-generation integrated pest
-            management strategies tailored for sustainable agriculture. Our research
-            combines cutting-edge science with practical agricultural impact. </p>
-        <p> We highly value collaborative teamwork, where every member takes ownership
-            of their projects and contributes actively to our collective success.
-            A strong attitude of curiosity and a desire for continuous learning
-            are essential qualities in our lab. </p>
-        <p> We encourage motivated students and colleagues to engage deeply in research,
-            helping develop their skills and fostering an environment of dynamic
-            collaboration. Our lab believes in mentoring hands-on researchers who
-            are eager to grow both academically and professionally, sharing ideas and
-            advancing the field together. </p>
+            meet the qualifications for the Biology program.
         </p>
-        <p><strong>Lab Values and Expectations</strong><br>
-        <p> Inclusivity and diversity are fundamental principles in our team. We prioritize
-            open, respectful collaboration among students and colleagues from all backgrounds
-            and many countries, reflecting our commitment to a multicultural environment. </p>
-        <p> Prospective members should come prepared with enthusiasm for scientific inquiry,
-            readiness for hands-on work, and the initiative to independently learn new techniques.
-            Ownership of projects and proactive communication are key to thriving here. </p>
-        <p> Commitment to academic excellence, paired with strong teamwork skills and a
-            proactive approach to challenges, shapes the foundation of our lab culture. </p>
-        </p>
+
+        <div>
+            <br><strong>General Information</strong><br>
+            <ul>
+                <li>
+                    <p>
+                        In the Grbić Lab, we focus on applying genomics and genetics to understand
+                        mite-plant interactions, aiming to develop next-generation integrated pest
+                        management strategies tailored for sustainable agriculture. Our research
+                        combines cutting-edge science with practical agricultural impact. </p>
+                </li>
+                <li>
+                    <p>
+                        We highly value collaborative teamwork, where every member takes ownership
+                        of their projects and contributes actively to our collective success.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A strong attitude of curiosity and a desire for continuous learning
+                        are essential qualities in our lab.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        We encourage motivated students and colleagues to engage deeply in research,
+                        helping develop their skills and fostering an environment of dynamic
+                        collaboration. Our lab believes in mentoring hands-on researchers who
+                        are eager to grow both academically and professionally, sharing ideas and
+                        advancing the field together.
+                    </p>
+                </li>
+            </ul>
+
+            <br><strong>Lab Values and Expectations</strong>
+            <ul>
+                <li>
+                    <p>
+                        Inclusivity and diversity are fundamental principles in our team. We prioritize
+                        open, respectful collaboration among students and colleagues from all backgrounds
+                        and many countries, reflecting our commitment to a multicultural environment.
+                    </p>
+                </li>
+                <li>
+                    <p> Prospective members should come prepared with enthusiasm for scientific inquiry,
+                        readiness for hands-on work, and the initiative to independently learn new techniques.
+                        Ownership of projects and proactive communication are key to thriving here.
+                    </p>
+                </li>
+                <li>
+                    <p>Commitment to academic excellence, paired with strong teamwork skills and a
+                        proactive approach to challenges, shapes the foundation of our lab culture.
+                    </p>
+                </li>
+            </ul>
+        </div>
     </section>
 
     <section id="publications">
@@ -481,7 +1048,7 @@
             </li>
         </ul>
 
-        <h2>All Publications</h2>
+        <br><h2>All Publications</h2>
         <p><a href="https://scholar.google.com/citations?user=eNmj7xcAAAAJ&hl=pt-BR&oi=ao" target="_blank"
                 style="text-decoration:none;">
                 <button type="button" style="padding: 4px 8px; font-size: 13px; cursor: pointer; text-transform: none;">
@@ -527,7 +1094,7 @@
             </li>
         </ul>
 
-        <h2>Scientific Writing and Communication</h2>
+        <br><h2>Scientific Writing and Communication</h2>
         <ul>
             <li>
                 <p>Why you should write your PhD thesis backwards (<a
@@ -560,7 +1127,7 @@
             </li>
         </ul>
 
-        <h2>Experimentation, Statistics and Data Analysis</h2>
+        <br><h2>Experimentation, Statistics and Data Analysis</h2>
         <ul>
             <li>
                 <p>Experimental Design and Statistical Methods (Belzile, Léo., 2025|<a
@@ -597,7 +1164,7 @@
                 </p>
             </li>
             <li>
-                <p>OrcAE - Online Resource for Community Annotation of Eukaryotes (<a
+                <p>OrcAE - Online Resource forCommunity Annotation of Eukaryotes (<a
                         href="https://bioinformatics.psb.ugent.be/orcae/" target="_blank" rel="noopener noreferrer"
                         style="color: purple;">Linsmith, G., et al., 2019</a>)
                 </p>
@@ -613,28 +1180,37 @@
 
     <section id="contact">
         <h2>Grbić Lab</h2>
-        <p><strong>Grbić Lab</strong><br>
-            Department of Biology, Western University<br>
-            1151 Richmond Street<br>
-            London, Ontario, Canada, N6A 3K7<br>
-            Tel: 519-850-2542<br>
-            Email: <a href="mailto:vgrbic@uwo.ca">vgrbic@uwo.ca</a>
-        </p>
+        <ul>
+            <p>
+                <strong>Grbić Lab</strong><br>
+                Department of Biology, Western University<br>
+                1151 Richmond Street<br>
+                London, Ontario, Canada, N6A 3K7<br>
+                Tel: 519-850-2542<br>
+                Email: <a href="mailto:vgrbic@uwo.ca">vgrbic@uwo.ca</a>
+            </p>
+        </ul>
 
+        <br>
         <h2>Got spider mites? Send us samples — we're ready to help!</h2>
-        <p>If you have spider mite samples that you'd like us to analyze for pesticide resistance or
+        <p>
+            If you have spider mite samples that you'd like us to analyze for pesticide resistance or
             species identification, please check the <a href="Attachments/sampling_protocol.pdf" target="_blank"
                 rel="noopener noreferrer" style="color: purple;">sampling protocol</a> and ship them to the address
-            below.</p>
-        <p><strong>Courier Address</strong><br>
-            Grbic Lab<br>
-            Western University<br>
-            Science Stores<br>
-            1151 Richmond St<br>
-            Chemistry Bldg<br>
-            Rm 003, Dock 11<br>
-            London, ON N6A 5B7<br>
+            below.
         </p>
+        <ul>
+            <p>
+                <strong>Courier Address</strong><br>
+                Grbic Lab<br>
+                Western University<br>
+                Science Stores<br>
+                1151 Richmond St<br>
+                Chemistry Bldg<br>
+                Rm 003, Dock 11<br>
+                London, ON N6A 5B7<br>
+            </p>
+        </ul>
     </section>
 
     <!-- ===== FOOTER ===== -->
