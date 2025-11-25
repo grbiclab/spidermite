@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grbić Lab – Spider Mite Team | Western University</title>
-    <link rel="icon" href="Images/iconweb.png" type="image/x-icon">
+    <link rel="icon" href="Images/Body/iconweb.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
@@ -103,26 +103,20 @@
         .carousel {
             position: relative;
             max-width: 100%;
-            /* Ensures the carousel fits within the screen width */
             margin-top: 20px;
             display: block;
             overflow: hidden;
-            /* Prevents overflow of images */
         }
 
         .carousel-images {
             display: flex;
             transition: transform 1s ease-in-out;
-            /* Smooth transition for sliding images */
         }
 
         .carousel-images img {
             width: 100%;
-            /* Makes each image take up 100% of the container width */
             height: auto;
-            /* Maintain aspect ratio */
             object-fit: cover;
-            /* Ensures images cover the container without distortion */
         }
 
         /* ===== CAROUSEL BUTTONS ===== */
@@ -146,17 +140,14 @@
 
         .carousel-button:hover {
             background-color: #6a2a97;
-            /* Darker purple on hover */
         }
 
         .carousel-button:focus {
             outline: none;
-            /* Remove outline for a cleaner look */
         }
 
         .carousel-button:active {
             transform: scale(0.95);
-            /* Small animation on button press */
         }
 
         .carousel-images::before {
@@ -172,29 +163,91 @@
         }
 
         /* ===== DROPDOWN MENU ===== */
-        nav li ul {
+        /* Main nav bar style */
+        nav {
+            background-color: #5e2b97;
+            height: 48px;
+            line-height: 48px;
+            position: relative;
+            z-index: 100;
+            overflow: visible;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            height: 48px;
+            flex-wrap: nowrap;
+        }
+
+        nav ul li {
+            position: relative;
+            padding: 0 11px;
+            cursor: pointer;
+            color: white;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            line-height: 48px;
+            padding: 0 5px;
+        }
+
+        /* Dropdown menu is absolutely positioned */
+        nav ul li ul.dropdown-menu {
             display: none;
             position: absolute;
             top: 48px;
             left: 0;
             background-color: #5e2b97;
-            min-width: 200px;
-            z-index: 999;
-            flex-direction: column;
+            min-width: auto;
+            padding: 0;
+            flex-direction: row;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        nav li:hover>ul {
+        /* Dropdown items style */
+        nav ul li ul.dropdown-menu li {
+            padding: 6px 12px;
+            border-bottom: none;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul li ul.dropdown-menu li:last-child {
+            border-right: none;
+        }
+
+        /* Show dropdown on toggle (JS toggle class 'show') */
+        nav ul li ul.dropdown-menu.show {
             display: flex;
         }
 
-        nav li ul li {
-            padding: 12px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
+        nav ul li ul.dropdown-menu {
+            display: none;
+            /* hide by default */
+            /* your other styles */
         }
 
-        nav li ul li:hover {
+        nav ul li:hover>a,
+        nav ul li:hover {
             background-color: #764abc;
+        }
+
+
+        nav ul li.dropdown::after {
+            content: "▾";
+            /* ► or ▼ */
+            font-size: 0.7em;
+            margin-left: 0.1px;
+            color: #fff;
         }
 
         /* ===== CONTENT SECTIONS ===== */
@@ -203,12 +256,10 @@
             max-width: 1000px;
             margin: auto;
             display: none;
-            /* All sections are hidden by default */
         }
 
         section.active {
             display: block;
-            /* Show only the active section */
         }
 
         section h2 {
@@ -242,18 +293,99 @@
         /* Updates image style */
         .inline-photo {
             display: block;
-            /* forces images to stack vertically */
             max-width: 300px;
-            /* adjust max width as needed */
             height: auto;
             margin-top: 10px;
-            /* spacing above image */
             border-radius: 5px;
-            /* optional rounded corners */
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            /* subtle shadow */
             margin-left: auto;
             margin-right: auto;
+        }
+
+        /* ===== Gallery ===== */
+        /* Gallery Grid Layout */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); 
+            gap: 5px; 
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Gallery Item */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .gallery-photo {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Image Zoom on Hover */
+        .gallery-item:hover .gallery-photo {
+            transform: scale(1.05);
+        }
+
+        .legend {
+            display: none;
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .gallery-item:hover .legend {
+            display: block; 
+        }
+
+        /* Fullscreen mode when active class is added */
+        .gallery-item.active {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+            overflow: hidden;
+        }
+
+        .gallery-item.active .gallery-photo {
+            transform: scale(1.2); 
+            max-width: 100%;  
+            max-height: 100%; 
+            object-fit: contain; 
+        }
+
+        .gallery-item.active .legend {
+            display: block;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+
+        .gallery-item {
+            transition: transform 0.3s ease-in-out;
         }
 
 
@@ -312,7 +444,81 @@
             color: rgb(120, 0, 180);
         }
 
-        /* Responsive: Stack vertically on mobile */
+        /* ================= PETS GRID ================= */
+        .pets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+            gap: 20px;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* Pet Item */
+        .pet-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        /* Pet Photo (circle shape) */
+        .pet-photo img {
+            width: 120px; 
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #ddd;
+        }
+
+        /* Pet Info Styling */
+        .pet-info {
+            margin-top: 10px;
+        }
+
+        .pet-name {
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .pet-activity {
+            font-style: italic;
+            color: #555;
+        }
+
+        /* ================= Fullscreen mode ================= */
+        .pet-item.active {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8); 
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out; 
+            overflow: hidden;
+        }
+
+        .pet-item.active .pet-photo img {
+            width: 40%; 
+            height: auto; 
+            object-fit: contain; 
+        }
+
+        .pet-item:hover {
+            transform: scale(1.05); 
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ================= Responsive: Stack vertically on mobile ================= */
         @media (max-width: 768px) {
             .team-member-right {
                 flex-direction: column;
@@ -327,23 +533,62 @@
 
             .social-icons {
                 align-self: center;
-                /* center icons on mobile */
             }
         }
 
 
         /* ===== FOOTER ===== */
         footer {
-            background-color: #eee;
-            color: #333;
-            font-size: 0.9em;
-            text-align: center;
-            padding: 30px 10px;
+            background-color: #e2dde4;    
+            color: #252425;               
+            padding: 18px;            
+            text-align: center;       
+            font-size: 14px;          
+            line-height: 1.5;         
+        }
+
+        footer .footer-content {
+            max-width: 1200px;        
+            margin: 0 auto;           
+        }
+
+        footer a {
+            color: rgb(80, 0, 130);           
+            text-decoration: none;    
+        }
+
+        footer a:hover {
+            text-decoration: underline; 
         }
 
         footer p {
-            margin: 5px 0;
+            margin: 1px 0;              
         }
+
+        footer p:last-child {
+            margin-bottom: 0;           
+        }
+
+        /* Back to Top Button */
+        #backToTop {
+            background-color: rgb(80, 0, 130);
+            color: white;
+            border: none;
+            padding: 15px 15px;
+            font-size: 16px;
+            border-radius: 100px;
+            cursor: pointer;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        #backToTopIcon {
+            font-weight: 100;
+            font-size: 17px;
+        }
+
 
         /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 768px) {
@@ -375,13 +620,13 @@
     <!-- ===== IMAGE CAROUSEL ===== -->
     <div class="carousel">
         <div class="carousel-images">
-            <!-- Put images inside the "Images" folder, and use appropriate names -->
-            <img src="Images/lab1.jpg" alt="">
-            <img src="Images/lab2.JPG" alt="">
-            <img src="Images/lab3.JPG" alt="">
-            <img src="Images/lab4.JPG" alt="">
-            <img src="Images/lab5.JPG" alt="">
-            <img src="Images/lab6.JPG" alt="">
+            <img src="Images/Slide/lab1.jpg" alt="">
+            <img src="Images/Slide/lab2.JPG" alt="">
+            <img src="Images/Slide/lab3.JPG" alt="">
+            <img src="Images/Slide/lab4.JPG" alt="">
+            <img src="Images/Slide/lab5.JPG" alt="">
+            <img src="Images/Slide/lab6.JPG" alt="">
+            <img src="Images/Slide/spidermitemeeting.jpg" alt="">
         </div>
         <div class="carousel-controls">
             <button class="carousel-button" id="prevBtn">&#10094;</button>
@@ -392,30 +637,68 @@
     <!-- ===== NAVIGATION BAR ===== -->
     <nav>
         <ul>
-            <li data-section="welcome">Welcome</li>
-            <li data-section="research">Research</li>
-            <li data-section="people">People</li>
-            <li data-section="services">Services</li>
-            <li data-section="opportunities">Opportunities</li>
-            <li data-section="publications">Publications</li>
-            <li data-section="links">Links</li>
-            <li data-section="contact">Contact Information</li>
-            <li><a href="https://www.uwo.ca/biology/" target="_blank">Western Biology</a></li>
+            <li data-section="welcome" class="dropdown">
+                <a href="#welcome">Welcome</a>
+                <ul class="dropdown-menu">
+                    <li data-subsection="welcome"><a href="#welcome">The Grbić Lab</a></li>
+                    <li data-subsection="labupdates"><a href="#labupdates">Lab Updates</a></li>
+                    <li data-subsection="gallery"><a href="#gallery">Gallery</a></li>
+                </ul>
+            </li>
+
+            <li data-section="research" class="dropdown">
+                <a href="#research">Research</a>
+                <ul class="dropdown-menu">
+                    <li data-subsection="overview"><a href="#overview">Overview</a></li>
+                    <li data-subsection="labstreams"><a href="#labstreams">Lab Streams</a></li>
+                    <li data-subsection="posters"><a href="#posters">Posters</a></li>
+                    <li data-subsection="presentations"><a href="#presentations">Presentations</a></li>
+                </ul>
+            </li>
+
+            <li data-section="people" class="dropdown">
+                <a href="#people">People</a>
+                <ul class="dropdown-menu">
+                    <li data-subsection="mentors"><a href="#mentors">Mentors</a></li>
+                    <li data-subsection="postdocs"><a href="#postdocs">Postdoc Fellows</a></li>
+                    <li data-subsection="students"><a href="#students">Students</a></li>
+                    <li data-subsection="pets"><a href="#pets">Lab Pets</a></li>
+                    <li data-subsection="alumni"><a href="#alumni">Alumni</a></li>
+                </ul>
+            </li>
+
+            <li data-section="services" class="dropdown">
+                <a href="#services">Services</a>
+                <ul class="dropdown-menu">
+                    <li data-subsection="resistance"><a href="#resistance">Resistance Status</a></li>
+                    <li data-subsection="genotyping"><a href="#genotyping">Genotyping</a></li>
+                    <li data-subsection="new_species"><a href="#new_species">New Species</a></li>
+                </ul>
+            </li>
+
+            <li data-section="opportunities"><a href="#opportunities">Opportunities</a></li>
+            <li data-section="publications"><a href="#publications">Publications</a></li>
+            <li data-section="links"><a href="#links">Links</a></li>
+            <li data-section="contact"><a href="#contact">Contact</a></li>
+            <li data-section="western-biology"><a href="https://www.uwo.ca/biology/" target="_blank"
+                    rel="noopener noreferrer">Western Biology</a></li>
         </ul>
     </nav>
 
+
     <!-- ===== MAIN CONTENT ===== -->
     <section id="welcome">
-        <h2>Welcome to the Grbić Lab</h2>
-            <p>
-                We are the Spider Mite Team at Western University in Ontario, Canada. Our research focuses
-                on the <strong>genomics and genetics of spider mite–host plant interactions, adaptation, and
-                    resistance to pesticides</strong>. Our goal is to understand the molecular and evolutionary
-                mechanisms driving pest adaptation and to support sustainable agriculture through genomic insights.
-            </p>
+        <h2 id="welcome">Welcome to the Grbić Lab</h2>
+        <p>
+            We are the Spider Mite Team at Western University in Ontario, Canada. Our research focuses
+            on the <strong>genomics and genetics of spider mite–host plant interactions, adaptation, and
+                resistance to pesticides</strong>. Our goal is to understand the molecular and evolutionary
+            mechanisms driving pest adaptation and to support sustainable agriculture through genomic insights.
+        </p>
 
+        <!-- ===== LAB UPDATES ===== -->
         <br>
-        <h2>Lab Updates</h2>
+        <h2 id="labupdates">Lab Updates</h2>
         <ul>
             <li>
                 <p>
@@ -424,7 +707,6 @@
                     (<a href="https://www.unirioja.es/actividades/15th-spider-mite-genome-meeting/" target="_blank"
                         rel="noopener noreferrer" style="color: purple;">Universidad de La Rioja, 2025</a>)
                 </p>
-                <!-- <img src="Images/spidermitemeeting.jpg" alt="Spider mite" class="inline-photo"> -->
             </li>
 
             <li>
@@ -434,11 +716,10 @@
                     and Ontario Pest Management Conference at the Royal Botanic Gardens, Burlington, Ontario, from
                     October 24-26, 2025
                     (<a href="https://www.entsocont.ca/eso_agm_2025-855639.html" target="_blank"
-                        rel="noopener noreferrer" style="color: purple;">2025 ESO</a>|<a href="https://www.ontariopmc.ca/" target="_blank"
-                        rel="noopener noreferrer" style="color: purple;">OPMC</a>)
+                        rel="noopener noreferrer" style="color: purple;">2025 ESO</a>|<a
+                        href="https://www.ontariopmc.ca/" target="_blank" rel="noopener noreferrer"
+                        style="color: purple;">OPMC</a>)
                 </p>
-                <!--  <img src="Images/ESO_OPMC1.jpg" alt="Spider mite" class="inline-photo">
-                <img src="Images/ESO_OPMC2.jpg" alt="Spider mite" class="inline-photo"> -->
             </li>
 
             <li>
@@ -448,29 +729,101 @@
                 (<a href="https://www.canadiangreenhouseconference.com/" target="_blank" rel="noopener noreferrer"
                     style="color: purple;">2025 CGC</a>)
                 </p>
-                <!--  <img src="Images/GC1.jpg" alt="Spider mite" class="inline-photo">
-                <img src="Images/GC2.JPG" alt="Spider mite" class="inline-photo"> -->
+            </li>
+        </ul><br>
+        
+        <!-- ===== LAB GALLERY ===== -->
+        <br>
+        <h2 id="gallery">Gallery</h2>
+        <strong>Lab Potluck Christmas 2024</strong><br>
+        <ul class="gallery-grid">
+            <li class="gallery-item">
+                <img src="Images/Body/iconweb.png" alt="Spider Mite Meeting" class="gallery-photo">
+                <div class="legend">
+                    <p>Legend ...</p>
+                </div>
+            </li>
+            <li class="gallery-item">
+                <img src="Images/Body/iconweb.png" alt="Spider Mite Meeting" class="gallery-photo">
+                <div class="legend">
+                    <p>Legend ...</p>
+                </div>
+            </li>
+            <li class="gallery-item">
+                <img src="Images/Body/iconweb.png" alt="Spider Mite Meeting" class="gallery-photo">
+                <div class="legend">
+                    <p>Legend ...</p>
+                </div>
+            </li>
+            <li class="gallery-item">
+                <img src="Images/Body/iconweb.png" alt="Spider Mite Meeting" class="gallery-photo">
+                <div class="legend">
+                    <p>Legend ...</p>
+                </div>
             </li>
         </ul>
-
+        <br>
+        <br>
+        <strong>Lab Potluck Christmas 2025</strong><br>
+        <ul class="gallery-grid">
+            <li class="gallery-item">
+                <img src="Images/Body/iconweb.png" alt="Spider Mite Meeting" class="gallery-photo">
+                <div class="legend">
+                    <p>Legend ...</p>
+                </div>
+            </li>
+            <li class="gallery-item">
+                <img src="Images/Body/iconweb.png" alt="Spider Mite Meeting" class="gallery-photo">
+                <div class="legend">
+                    <p>Legend ...</p>
+                </div>
+            </li>
+            <!-- Add more list items for additional photos -->
+        </ul>
+        
+        <!-- ===== WEBSITE VISITORS ===== -->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <!--<div style="flex: 1;">
+                <h3>.</h3>
+                <p>.</p>
+            </div>-->
+            <!--<div style="flex: 1; text-align: center;">
+                <a href="https://mapmyvisitors.com/web/1c0i3" target="_blank" rel="noopener noreferrer"
+                    title="Visit tracker">
+                    <img
+                        src="https://mapmyvisitors.com/map.png?cl=7f5e2f&w=500&t=tt&d=TuKguAwDVF-AYoVCxeGN0dyAr5mp9qWMBD20OvyLtCc&co=f9f9f9&ct=5101a5" />
+                </a>
+            </div>-->
+            <!--<div style="flex: 1;">
+                <h3>.</h3>
+                <p>.</p>
+            </div>-->
+        </div>
     </section>
 
     <section id="research">
-        <h2>Overview</h2>
-        
-            <p>
-                We have a long-standing dedication to research excellence
-                in biology. We focus on <strong>genomics and genetics of plant-host adaptation
-                    and mite-plant interactions</strong>. Building on decades of fundamental
-                research—including the pioneering sequencing of the Two-Spotted Spider
-                Mite (<i>Tetranychus urticae</i>) genome—we have developed innovative diagnostic
-                tools for quick <strong>pesticide resistance assessment</strong>, along with <strong>RNAi-based
-                    bioacaricides</strong> to control mite-resistant populations.
-            </p>
-        
+        <h2 id="overview">Overview</h2>
+
+        <p>
+            We have a long-standing dedication to research excellence
+            in biology. We focus on <strong>genomics and genetics of plant-host adaptation
+                and mite-plant interactions</strong>. Building on decades of fundamental
+            research—including the pioneering sequencing of the Two-Spotted Spider
+            Mite (<i>Tetranychus urticae</i>) genome—we have developed innovative diagnostic
+            tools for quick <strong>pesticide resistance assessment</strong>, along with <strong>RNAi-based
+                bioacaricides</strong> to control mite-resistant populations.
+        </p>
+
 
         <br>
-        <h2>Lab Streams</h2>
+        <h2 id="labstreams">Lab Streams</h2>
         <ul>
             <p>
                 <li><strong>Plant–Herbivore Interactions and Adaptation</strong></li>
@@ -508,8 +861,7 @@
 
     <section id="people">
         <!-- ================= MENTORS ================= -->
-        <br>
-        <h2>Mentors</h2>
+        <h2 id="mentors">Mentors</h2>
 
         <!--Dr. Vojislava Grbić-->
         <div class="team-member-right">
@@ -524,7 +876,8 @@
                     Dr. Vojislava Grbić is an expert in plant–herbivore interactions, molecular plant biology,
                     and spider mite genomics. Her research integrates genomics, metabolomics, and molecular tools
                     to uncover the mechanisms of mite adaptation, pesticide resistance, and plant defense, as well
-                    as to advance <i>Tetranychus urticae</i> as a chelicerate model organism. She also contributes to the
+                    as to advance <i>Tetranychus urticae</i> as a chelicerate model organism. She also contributes to
+                    the
                     identification and characterization, and assessment of pest potential of emerging mite species,
                     working closely with government agencies, industry partners, and Ontario’s growers to develop
                     science-based spider mite management strategies that support sustainable agriculture in Canada.
@@ -560,6 +913,7 @@
                 </p>
 
                 <div class="social-icons">
+                    <a href="vgrbic@uwo.ca" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-at"></i></a>
                     <a href="https://ca.linkedin.com/in/vojislava-grbic-6a653b104" target="_blank"
                         rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
                     <a href="https://scholar.google.com/citations?user=eNmj7xcAAAAJ&hl=pt-BR&oi=ao" target="_blank"
@@ -571,7 +925,7 @@
                 </div>
             </div>
             <div class="member-photo">
-                <img src="Images/V_Grbic.jpg" alt="Dr. Vojislava Grbić">
+                <img src="Images/People/V_Grbic.jpg" alt="Dr. Vojislava Grbić">
             </div>
         </div>
 
@@ -633,6 +987,7 @@
                 </p>
 
                 <div class="social-icons">
+                    <a href="mgrbic@uwo.ca" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-at"></i></a>
                     <a href="https://www.linkedin.com/in/username" target="_blank" rel="noopener noreferrer"><i
                             class="fa-brands fa-linkedin"></i></a>
                     <a href="https://scholar.google.com/citations?user=rdmiDT4AAAAJ&hl=pt-BR&oi=ao" target="_blank"
@@ -644,7 +999,7 @@
                 </div>
             </div>
             <div class="member-photo">
-                <img src="Images/iconweb.png" alt="Dr. Miodrag Grbić">
+                <img src="Images/People/M_Grbic.jpg" alt="Dr. Miodrag Grbić">
             </div>
         </div>
 
@@ -691,7 +1046,7 @@
                     </li>
                     <li>Postdoctoral Fellow, Department of Biology, University of Western Ontario, Canada (2010 –2012)
                     </li>
-                    <li>Postdoctoral Associate, Robarts Research Institute, Canada (2006 – 2010)</li>
+                    <li>Postdoctoral Associate, Robarts Research Institute, Canada (2006–2010)</li>
                     <li>Human Frontier Postdoctoral Fellow, Univ. of Cambridge, UK (1996–1998)</li>
                     <li>NSF Postdoctoral Fellow, University of Wisconsin, Madison, USA (1995–1996)</li>
                     <li>PhD in Biology, Western University (2005)</li>
@@ -701,6 +1056,7 @@
                 </p>
 
                 <div class="social-icons">
+                    <a href="vzhurov2@uwo.ca" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-at"></i></a>
                     <a href="https://ca.linkedin.com/in/vzhurov" target="_blank" rel="noopener noreferrer"><i
                             class="fa-brands fa-linkedin"></i></a>
                     <a href="https://scholar.google.com/citations?user=88Qx3JUAAAAJ&hl=en" target="_blank"
@@ -712,28 +1068,160 @@
                 </div>
             </div>
             <div class="member-photo">
-                <img src="Images/iconweb.png" alt="Dr. Vladimir Zhurov">
+                <img src="Images/People/V_Zhurov.jpg" alt="Dr. Vladimir Zhurov">
             </div>
         </div>
 
 
-
         <!-- ================= POSTDOCS ================= -->
-
         <br>
-        <h2>Postdoctoral Fellows</h2>
+        <h2 id="postdocs">Postdoctoral Fellows</h2>
 
         <!--Dr. Postdoc 1-->
         <div class="team-member-right">
             <div class="member-info">
                 <a href="#" target="_blank" rel="noopener noreferrer" class="member-name">
-                    <strong>Dr. Postdoc 1</strong>
+                    <strong>Dr. Kristie Bruinsma</strong>
                 </a>
-                <p><strong><i>Key expertise/technique</i></strong></p>
+                <p><strong><i>Alumni/Affiliate Researcher</strong><br>(currently a postdoc at the University of La Rioja, Spain)</i></p>
 
                 <p>
                 <ul>
-                    Short bio.
+                    I study plant-herbivore interaction for the purpose of identifying effective plant defence responses against pests and appropriate molecular targets of pests that can be used in developing plant protection strategies. My work has focused on identifying defences that act directly against the herbivore Tetranychus urticae (two-spotted spider mite. My past research involved charictarization of spider mite strains following adaptation to new hosts, including Arabidopsis thaliana (thale cress), and Solanum lycopersicum (tomato) and looking into what mechanisms are involved in the adaptiation process. To do this work, I have gained expertise in many techniques used in molecular genetics research, including transcriptomics, RT-qPCR, and reverse genetics technology like environmental RNAi. My goal is to encorporate the findings of my research into the generation of pest-resistant crop varieties and/or protection agents to be used in Integrated Pest Management (IPM) strategies.
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Research Areas</strong>
+                <ul>
+                    <li>dsRNA pesticide research</li>
+                    I am working towards understanding the variables that need to be considered in generating an effective RNAi based pesticide against spider mites, including route of exposure and window of effectiveness experiments.
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Degrees and Institutions</strong>
+                <ul>
+                    <li>BSc, MSc, PhD (Western University, Canada)</li>
+                </ul>
+                </p>
+
+                <div class="social-icons">
+                    <!--<a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google"></i></a>-->
+                    <a href="https://www.researchgate.net/profile/Kristie_Bruinsma" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-researchgate"></i></a>
+                    <a href="https://orcid.org/0000-0001-7913-7920" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-orcid">
+                    </i></a>
+                    <!--<a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>-->
+                </div>
+            </div>
+            <div class="member-photo">
+                <img src="Images/People/K_Bruinsma.jpg" alt="Dr. Postdoc 1">
+            </div>
+        </div>
+
+        <!--Dr. Postdoc 2-->
+        <div class="team-member-right">
+            <div class="member-info">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="member-name">
+                    <strong>Dr. Joseane Moreira do Nascimento</strong>
+                </a>
+                <p><strong><i>Postdoctoral Associate</strong></i></p>
+
+                <p>
+                <ul>
+                    I am currently a Postdoctoral Associate with expertise in biotechnology, leading our lab’s pesticide resistance project, where we develop molecular tools to detect and monitor mite resistance. I am also involved in studying the population dynamics of spider mites in greenhouse and soybean production, which recently led to the discovery of a new spider mite species! Alongside these projects, I’m heavily involved in developing RNAi-based acaricides in collaboration with GreenLight Biosciences. I also love teaching, and I’ve had the opportunity to train over 10 undergraduate students in the lab. I’m passionate about research that brings practical solutions to growers and the agricultural community.
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Research Areas</strong>
+                <ul>
+                    <li>Mite resistance to pesticides</li>
+                    <li>RNAi-based acaricides</li>
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Degrees and Institutions</strong>
+                <ul>
+                    <li>BSc in Biology, MSc and PhD in Biotechnology (University of Taquari Valley - Lajeado, Rio Grande do Sul, Brazil)</li>
+                </ul>
+                </p>
+
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/joseane-nascimento-phd-052b3772/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                    <!--<a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google"></i></a>-->
+                    <a href="https://www.researchgate.net/profile/Joseane-Nascimento?ev=hdr_xprf" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-researchgate"></i></a>
+                    <!--<a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-orcid">
+                    </i></a>-->
+                    <!--<a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>-->
+                </div>
+            </div>
+            <div class="member-photo">
+                <img src="Images/People/J_Nascimento.JPG" alt="Dr. Postdoc 2">
+            </div>
+        </div>
+
+        <!--Dr. Postdoc 3-->
+        <div class="team-member-right">
+            <div class="member-info">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="member-name">
+                    <strong>Dr. Julia Pastor Fernandez</strong>
+                </a>
+                <p><strong><i>Postdoctoral Associate</strong></i></p>
+
+                <p>
+                <ul>
+                    I am currently a Postdoctoral Associate with expertise in ...
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Research Areas</strong>
+                <ul>
+                    <li>...</li>
+                    <li>...</li>
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Degrees and Institutions</strong>
+                <ul>
+                    <li>...</li>
+                </ul>
+                </p>
+
+                <div class="social-icons">
+                    <a href="https://ca.linkedin.com/in/julia-pastor-fern%C3%A1ndez-940008180/en" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://scholar.google.com/citations?user=ZizK6jYAAAAJ&hl=pt-BR&oi=ao" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google"></i></a>
+                    <!--<a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-researchgate"></i></a>-->
+                    <!--<a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-orcid">
+                    </i></a>-->
+                    <!--<a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>-->
+                </div>
+            </div>
+            <div class="member-photo">
+                <img src="Images/People/J_Pastor.jpeg" alt="Dr. Postdoc 3">
+            </div>
+        </div>
+        
+        <!-- ================= TECHNICIANS ================= -->    
+        <!--Lab Tech-->
+        <div class="team-member-right">
+            <div class="member-info">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="member-name">
+                    <strong>Reagan Michiels</strong>
+                </a>
+                <p><strong><i>BSc in Biology</i></strong><br>
+                <i>Cell and Molecular Biology</i></p>
+
+                <p>
+                <ul>
+                    ...
                 </ul>
                 </p>
 
@@ -743,6 +1231,7 @@
                     <li>...</li>
                     <li>...</li>
                     <li>...</li>
+                    <li>...</li>
                 </ul>
                 </p>
 
@@ -750,50 +1239,147 @@
                     <strong>Degrees and Institutions</strong>
                 <ul>
                     <li>...</li>
-                    <li>...</li>
-                    <li>...</li>
                 </ul>
                 </p>
 
                 <div class="social-icons">
-                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google"></i></a>
+                    <a href="mailto:rmichie4@uwo.ca" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-at"></i></a>
+                    <a href="https://ca.linkedin.com/in/reagan-michiels-7b79" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                    <!--<a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google"></i></a>
                     <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-researchgate"></i></a>
                     <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>-->
                 </div>
             </div>
             <div class="member-photo">
-                <img src="Images/iconweb.png" alt="Dr. Postdoc 1">
-            </div>
+                <img src="Images/People/R_Michiels.png" alt="Lab Technician">
+            </div>        
         </div>
-
 
         <!-- ================= STUDENTS ================= -->
 
         <br>
-        <h2>Students</h2>
+        <h2 id="students">Students</h2>
 
-        <!--Dr. Postdoc 1-->
+        <!--Grad Student 1-->
         <div class="team-member-right">
             <div class="member-info">
                 <a href="#" target="_blank" rel="noopener noreferrer" class="member-name">
-                    <strong>Graduate Student 1</strong>
+                    <strong>Jorden Mikaela Maglov</strong>
                 </a>
-                <p><strong><i>PhD Candidate</i></strong></p>
+                <p><strong><i>PhD Candidate</i></strong><br>
+                <i>Cell and Molecular Biology</i></p>
 
                 <p>
                 <ul>
-                    Short bio.
+                    I study Arabidopsis-mite interactions. On the plant side, I am investigating 
+                    the chemical complexity of Arabidopsis defenses, with a focus on phenylpropanoids 
+                    and flavonoids. I use metabolomics and toxicity screens to identify chemical defenses. 
+                    Conversely, I am also studying mite counteradaptations to plant chemical defenses, 
+                    with a focus on mite intradiol dioxygenases. I use RNAi as a reverse genetics tool to 
+                    study the function of these enzymes.
                 </ul>
                 </p>
 
                 <p>
-                    <strong>Lab Stream</strong>
+                    <strong>Research Areas</strong>
                 <ul>
-                    Thesis title
-                    <li>Project</li>
-                    <li>key techniques</li>
+                    <li>Untargeted metabolomics</li>
+                    <li>Targeted metabolomics</li>
+                    <li>Phytochemistry</li>
+                    <li>RNAi</li>
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Degrees and Institutions</strong>
+                <ul>
+                    <li>BSc, Honors Specialization in Genetics (Western University, Canada)</li>
+                </ul>
+                </p>
+
+                <div class="social-icons">
+                    <a href="mailto:jmaglov@uwo.ca" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-at"></i></a>
+                    <a href="https://www.linkedin.com/in/jorden-maglov-193b33159" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                    <!--<a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-researchgate"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>-->
+                </div>
+            </div>
+            <div class="member-photo">
+                <img src="Images/People/J_Maglov.jpg" alt="Graduate Student 1">
+            </div>
+        </div>
+        
+        <!--Grad Student 2-->
+        <div class="team-member-right">
+            <div class="member-info">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="member-name">
+                    <strong>Zoran Čulo</strong>
+                </a>
+                <p><strong><i>PhD Candidate</i></strong><br>
+                <i>Cell and Molecular Biology</i></p>
+
+                <p>
+                <ul>
+                    ...
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Research Areas</strong>
+                <ul>
+                    <li>...</li>
+                    <li>...</li>
+                    <li>...</li>
+                    <li>...</li>
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Degrees and Institutions</strong>
+                <ul>
+                    <li>BSc, Honors Specialization in Genetics (Western University, Canada)</li>
+                </ul>
+                </p>
+
+                <div class="social-icons">
+                    <a href="mailto:zculo@uwo.ca" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-at"></i></a>
+                    <a href="https://ca.linkedin.com/in/zoran-%C4%8Dulo-853118209" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                    <!--<a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-researchgate"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>-->
+                </div>
+            </div>
+            <div class="member-photo">
+                <img src="Images/People/Z_Culo.JPG" alt="Graduate Student 2">
+            </div>
+        </div>
+
+        <!--Grad Student 3-->
+        <div class="team-member-right">
+            <div class="member-info">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="member-name">
+                    <strong>Michele Antonacci</strong>
+                </a>
+                <p><strong><i>PhD Candidate</i></strong><br>
+                <i>Cell and Molecular Biology</i></p>
+
+                <p>
+                <ul>
+                    ...
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Research Areas</strong>
+                <ul>
+                    <li>...</li>
+                    <li>...</li>
+                    <li>...</li>
+                    <li>...</li>
                 </ul>
                 </p>
 
@@ -801,29 +1387,128 @@
                     <strong>Degrees and Institutions</strong>
                 <ul>
                     <li>...</li>
+                </ul>
+                </p>
+
+                <div class="social-icons">
+                    <a href="mailto:mantonac@uwo.ca" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-at"></i></a>
+                    <a href="https://ca.linkedin.com/in/michele-antonacci-1996909b" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                    <!--<a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-researchgate"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>-->
+                </div>
+            </div>
+            <div class="member-photo">
+                <img src="Images/People/M_Antonacci.jpg" alt="Graduate Student 3">
+            </div>
+        </div>
+
+        <!--Grad Student 4-->
+        <div class="team-member-right">
+            <div class="member-info">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="member-name">
+                    <strong>Mikaelison da Silva Lima</strong>
+                </a>
+                <p><strong><i>PhD Candidate</i></strong><br>
+                <i>Ecology and Evolution</i></p>
+
+                <p>
+                <ul>
+                    ...
+                </ul>
+                </p>
+
+                <p>
+                    <strong>Research Areas</strong>
+                <ul>
+                    <li>...</li>
+                    <li>...</li>
                     <li>...</li>
                     <li>...</li>
                 </ul>
                 </p>
 
+                <p>
+                    <strong>Degrees and Institutions</strong>
+                <ul>
+                    <li>...</li>
+                </ul>
+                </p>
+
                 <div class="social-icons">
-                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google"></i></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-researchgate"></i></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:mdasil66@uwo.ca" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-at"></i></a>
+                    <a href="https://ca.linkedin.com/in/mikaelison-lima-68b888143/pt" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://orcid.org/0000-0002-6304-3847" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-orcid"></i></a>
+                    <a href="https://scholar.google.com/citations?user=NMTO-YUAAAAJ&hl=pt-BR&oi=ao" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google"></i></a>
+                    <a href="https://www.researchgate.net/profile/Mikaelison-Da-S-Lima" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-researchgate"></i></a>
+                    <!--<a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>-->
                 </div>
             </div>
             <div class="member-photo">
-                <img src="Images/iconweb.png" alt="Graduate Student 1">
+                <img src="Images/People/M_Lima.jpeg" alt="Graduate Student 4">
             </div>
         </div>
+
+        <!-- ================= PETS ================= -->
+        <br>
+        <h2 id="pets">Lab Pets</h2>
+
+        <div class="pets-grid">
+            <!-- Pet 1 -->
+            <div class="pet-item">
+                <div class="pet-photo">
+                    <img src="Images/People/Pets/Vera.jpg" alt="Pet 1">
+                </div>
+                <div class="pet-info">
+                    <p class="pet-name"><strong>Vera</strong></p>
+                    <p class="pet-activity">Expertise in napping near a human (PS: any human!).</p>
+                </div>
+            </div>
+            
+            <!-- Pet 2 -->
+            <div class="pet-item">
+                <div class="pet-photo">
+                    <img src="Images/People/Pets/Scooby.jpg" alt="Pet 2">
+                </div>
+                <div class="pet-info">
+                    <p class="pet-name"><strong>Scooby</strong></p>
+                    <p class="pet-activity">Expertise in ...</p>
+                </div>
+            </div>
+
+            <!-- Pet 3 -->
+            <div class="pet-item">
+                <div class="pet-photo">
+                    <img src="Images/People/Pets/Lola.jpg" alt="Pet 3">
+                </div>
+                <div class="pet-info">
+                    <p class="pet-name"><strong>Lola</strong></p>
+                    <p class="pet-activity">Expertise in ...</p>
+                </div>
+            </div>
+            
+            <!-- Pet 4 -->
+            <div class="pet-item">
+                <div class="pet-photo">
+                    <img src="Images/People/Pets/Floki.jpg" alt="Pet 4">
+                </div>
+                <div class="pet-info">
+                    <p class="pet-name"><strong>Floki</strong></p>
+                    <p class="pet-activity">Expertise in spreading fur around the house and drama.</p>
+                </div>
+            </div>
+            <!-- Add more pets here -->
+        </div>
+
+
 
 
         <!-- ================= ALUMNI ================= -->
 
         <br>
-        <h2>Alumni</h2>
+        <h2 id="alumni">Alumni</h2>
 
         <!--Postdoctoral Fellows-->
         <div>
@@ -915,7 +1600,7 @@
     </section>
 
     <section id="services">
-        <h2>Services</h2>
+        <h2 id="services">Services</h2>
         <p>We have worked closely with farmers, growers, industry, and government to track the pesticide
             resistance status of two-spotted spider mite (<i>Tetranychus urticae</i>) populations. More recently, we
             have expanded our services to include identifying and characterizing the biodiversity of tetranychid
@@ -942,35 +1627,33 @@
     </section>
 
     <section id="opportunities">
-        <h2>Opportunities - We are hiring!</h2>
+        <h2 id="opportunities">Opportunities - We are hiring!</h2>
         <p>
-            You can email me (<a href="https://www.uwo.ca/biology//people/faculty.html#Vojislava%20Grbic" 
-                                  target="_blank" rel="noopener noreferrer" style="color: purple;">Dr. Vojislava Grbić</a>) 
+            You can email me (<a href="https://www.uwo.ca/biology//people/faculty.html#Vojislava%20Grbic"
+                target="_blank" rel="noopener noreferrer" style="color: purple;">Dr. Vojislava Grbić</a>)
             for information about available positions, but please review
-            the details below and the Western’s Biology Prospective Graduate Student <a href="https://www.uwo.ca/biology//graduate/future-students/admission-requirements.html" 
-                                          target="_blank" rel="noopener noreferrer" style="color: purple;"> webpage</a> to make sure you
+            the details below and the Western’s Biology Prospective Graduate Student <a
+                href="https://www.uwo.ca/biology//graduate/future-students/admission-requirements.html" target="_blank"
+                rel="noopener noreferrer" style="color: purple;"> webpage</a> to make sure you
             meet the qualifications for the Biology program.
         </p>
         <div>
             <strong>Current Open Positions</strong>
             <ul>
                 <li>
-                    <a href="Attachments/PhD_Position.pdf" 
-                                      target="_blank" rel="noopener noreferrer" style="color: purple;">PhD</a>
+                    <a href="Attachments/PhD_Position.pdf" target="_blank" rel="noopener noreferrer" style="color: purple;">PhD</a>
                 </li>
                 <li>
-                    <a href="#" 
-                                      target="_blank" rel="noopener noreferrer" style="color: purple;">MSc</a>
+                    <a href="Attachments/PhD_Position.pdf" target="_blank" rel="noopener noreferrer" style="color: purple;">MSc</a>
                 </li>
                 <li>
-                    <a href="#" 
-                                      target="_blank" rel="noopener noreferrer" style="color: purple;">Honour's</a>
+                    <a href="Attachments/PhD_Position.pdf" target="_blank" rel="noopener noreferrer" style="color: purple;">Honour's</a>
                 </li>
                 <li>
-                    <a href="#" 
-                                      target="_blank" rel="noopener noreferrer" style="color: purple;">Postdoctoral Fellow</a>
+                    <a href="Attachments/PhD_Position.pdf" target="_blank" rel="noopener noreferrer" style="color: purple;">Postdoctoral Fellow</a>
                 </li>
             </ul>
+        <div>
             <br><strong>General Information</strong><br>
             <ul>
                 <li>
@@ -983,7 +1666,7 @@
                 <li>
                     <p>
                         We highly value collaborative teamwork, where every member takes ownership
-                        of their projects and contribute actively to our collective success.
+                        of their projects and contributes actively to our collective success.
                     </p>
                 </li>
                 <li>
@@ -1028,7 +1711,7 @@
     </section>
 
     <section id="publications">
-        <h2>Highlights</h2>
+        <h2 id="highlights">Highlights</h2>
         <ul>
             <li>
                 <p>Mity model: <i>Tetranychus urticae</i>, a candidate for chelicerate model organism (<a
@@ -1063,7 +1746,8 @@
             </li>
         </ul>
 
-        <br><h2>All Publications</h2>
+        <br>
+        <h2 id="allpublications">All Publications</h2>
         <p><a href="https://scholar.google.com/citations?user=eNmj7xcAAAAJ&hl=pt-BR&oi=ao" target="_blank"
                 style="text-decoration:none;">
                 <button type="button" style="padding: 4px 8px; font-size: 13px; cursor: pointer; text-transform: none;">
@@ -1074,7 +1758,7 @@
     </section>
 
     <section id="links">
-        <h2>Spider Mites</h2>
+        <h2 id="spidermites">Spider Mites</h2>
         <ul>
             <li>
                 <p>The complete genome of <i>Tetranychus urticae</i> (<a
@@ -1109,7 +1793,8 @@
             </li>
         </ul>
 
-        <br><h2>Scientific Writing and Communication</h2>
+        <br>
+        <h2 id="scientificwriting">Scientific Writing and Communication</h2>
         <ul>
             <li>
                 <p>Why you should write your PhD thesis backwards (<a
@@ -1142,7 +1827,8 @@
             </li>
         </ul>
 
-        <br><h2>Experimentation, Statistics and Data Analysis</h2>
+        <br>
+        <h2 id="experimentation">Experimentation, Statistics and Data Analysis</h2>
         <ul>
             <li>
                 <p>Experimental Design and Statistical Methods (Belzile, Léo., 2025|<a
@@ -1230,11 +1916,19 @@
 
     <!-- ===== FOOTER ===== -->
     <footer>
-        <p>&copy; <span id="year"></span> Grbić Lab, Department of Biology, Western University, ON, Canada. All rights
-            reserved.</p>
-        <p>Content for research and educational purposes only.</p>
+        <div class="footer-content">
+            <p>&copy; <span id="year"></span> Grbić Lab, Department of Biology, Western University, ON, Canada | All rights reserved.</p>
+            <p>Content for research and educational purposes only.</p>
+            <p>Designed by <a href="https://yourportfolio.com" target="_blank" rel="noopener noreferrer">Mika Lima</a>.</p>
+        </div>
     </footer>
 
+    <button id="backToTop">Back to Top
+        <span id="backToTopIcon">↑</span>
+    </button>
+
+
+    <!-- ===== JAVASCRIPT ===== -->
     <script>
         // Auto-update year in footer
         document.getElementById("year").textContent = new Date().getFullYear();
@@ -1273,14 +1967,13 @@
         carouselImages.appendChild(firstClone);
         carouselImages.insertBefore(lastClone, images[0]);
 
-        let currentIndex = 1; // Start from the first real image (after lastClone)
+        let currentIndex = 1; 
 
         function showImage(index) {
             carouselImages.style.transition = 'transform 1s ease-in-out';
             carouselImages.style.transform = `translateX(-${100 * index}%)`;
         }
 
-        // Listen for transition end to reset position instantly if at clone
         carouselImages.addEventListener('transitionend', () => {
             const imgs = carouselImages.querySelectorAll("img");
             if (currentIndex === 0) {
@@ -1320,6 +2013,102 @@
             currentIndex++;
             showImage(currentIndex);
         }, 8000);
+
+        // Dropdown menu functionality with toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            // Select all dropdown parent menu items
+            const dropdowns = document.querySelectorAll('nav ul li.dropdown');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function (e) {
+                    // Prevent default action and stop propagation to avoid unintended behaviors
+                    e.stopPropagation();
+
+                    // Toggle the display of the submenu
+                    const menu = this.querySelector('ul.dropdown-menu');
+                    if (menu) {
+                        menu.classList.toggle('show');
+                    }
+
+                    // Close other open dropdowns (optional)
+                    dropdowns.forEach(other => {
+                        if (other !== dropdown) {
+                            const otherMenu = other.querySelector('ul.dropdown-menu');
+                            if (otherMenu) {
+                                otherMenu.classList.remove('show');
+                            }
+                        }
+                    });
+                });
+            });
+
+            // Close dropdowns if clicking outside
+            document.addEventListener('click', function () {
+                dropdowns.forEach(dropdown => {
+                    const menu = dropdown.querySelector('ul.dropdown-menu');
+                    if (menu) {
+                        menu.classList.remove('show');
+                    }
+                });
+            });
+        });
+
+        // Alternative dropdown menu functionality
+        document.querySelectorAll('nav ul li.dropdown > a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default link behavior if needed (for anchors)
+                const parentLi = link.parentElement;
+                const submenu = parentLi.querySelector('.dropdown-menu');
+
+                // Toggle the submenu visibility
+                submenu.classList.toggle('show');
+
+                // Optional: Close other open submenus
+                document.querySelectorAll('.dropdown-menu.show').forEach(other => {
+                    if (other !== submenu) {
+                        other.classList.remove('show');
+                    }
+                });
+            });
+        });
+
+        // Back to Top button functionality
+        document.getElementById('backToTop').onclick = function () {
+            window.scrollTo({
+                top: 1000,
+                behavior: 'smooth'
+            });
+        };
+
+        // Show/Hide Back to Top button on scroll
+        window.onscroll = function () {
+            const backToTopBtn = document.getElementById('backToTop');
+            if (document.body.scrollTop > 1300 || document.documentElement.scrollTop > 1300) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active'); // Toggle active class to expand/collapse image
+            });
+        });
+
+        // Select all pet items
+        const petItems = document.querySelectorAll('.pet-item');
+
+        petItems.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active'); // Toggle the active class to expand/collapse the image
+            });
+        });
+
+        // Dynamically update the year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
     </script>
 </body>
 
