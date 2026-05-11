@@ -1,34 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Under maintenance</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="Images/iconweb.png" type="image/x-icon">
+  <meta name="description" content="Spider mite diagnostics and sample submission information.">
+  <title>Spider Mite Diagnostics</title>
+  <link rel="icon" href="Images/Body/iconweb.png" type="image/x-icon">
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
   <style>
-    html, body {
-      height: 100%;
+    :root {
+      --bg: #0f1512;
+      --surface: rgba(12, 18, 15, 0.58);
+      --surface-strong: rgba(12, 18, 15, 0.76);
+      --text: #f4f7f3;
+      --muted: #d5ddd5;
+      --accent: #87c97f;
+      --accent-hover: #73b96b;
+      --border: rgba(255, 255, 255, 0.18);
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
       margin: 0;
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: #ffffff;
-      background: #000 url("Images/Body/db_TSSM.jpg") center center / cover no-repeat;
+      font-family: "General Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(rgba(5, 10, 8, 0.34), rgba(5, 10, 8, 0.54)),
+        url("Images/Body/db_TSSM.jpg") center center / cover no-repeat fixed;
+      display: grid;
+      place-items: center;
+      padding: 24px;
     }
 
-    .overlay {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-      font-size: clamp(2rem, 5vw, 3rem);
+    .card {
+      width: min(760px, 100%);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(24px, 4vw, 48px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(135, 201, 127, 0.16);
+      color: #eaf5e7;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1.05;
+      max-width: 12ch;
+    }
+
+    p {
+      margin: 0;
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      line-height: 1.7;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-size: 0.98rem;
+      font-weight: 700;
+      transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #112014;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .note {
+      margin-top: 20px;
+      color: #eef3ee;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 16px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="overlay">
-    Under maintenance...
-  </div>
+  <main class="card">
+    <div class="eyebrow">Grbić Lab - <em>The Spider Mite Team</em></div>
+    <h1>Website update in progress.</h1>
+    <p>
+      Our full website is being refreshed.
+    </p>
+    <p>
+      If you notice unusual spider mite damage on your plants,
+      you can still contact us and submit infested samples for diagnosis.
+    </p>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="Attachments/sampling_protocol.pdf" target="_blank" rel="noopener noreferrer">
+        Send infested samples
+      </a>
+      <a class="btn btn-secondary" href="mailto:vgrbic@uwo.ca?subject=Spider%20mite%20sample%20submission">
+        Contact us by email
+      </a>
+    </div>
+
+    <p class="note">
+      The sample submission page opens in a new tab and includes packing instructions, shipping details,
+      and institutional address.
+    </p>
+  </main>
 </body>
+
 </html>
